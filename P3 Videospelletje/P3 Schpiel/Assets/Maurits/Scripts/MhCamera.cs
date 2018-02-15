@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour {
+public class MhCamera : MonoBehaviour {
     private Vector3 rotAmt;
     public float CamSensitivity;
 	// Use this for initialization
