@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
     private Vector3 rotAmt;
-    private Vector3 movePos;
+    public Vector3 movePos;
     public float speed;
     public float camSensitivity;
 	// Use this for initialization
@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         rotAmt.y = Input.GetAxis("Mouse X");
         movePos.x = Input.GetAxis("Horizontal");
         movePos.z = Input.GetAxis("Vertical");
