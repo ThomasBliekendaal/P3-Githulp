@@ -212,6 +212,9 @@ MonoBehaviour:
   jumpVel: {x: 0, y: 5, z: 0}
   rotateVel: {x: 0, y: 0, z: 0}
   camRotateVel: {x: 0, y: 0, z: 0}
+  totalJumps: 0
+  sprintSpeed: 7.5
+  walkSpeed2: 0
 --- !u!23 &712636016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -420,6 +423,14 @@ Prefab:
     - target: {fileID: 4667602123084982, guid: efa3af369516e39428d0091392d3c643, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089250770529564, guid: efa3af369516e39428d0091392d3c643, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089250770529564, guid: efa3af369516e39428d0091392d3c643, type: 2}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efa3af369516e39428d0091392d3c643, type: 2}
