@@ -23,10 +23,9 @@ public class DrMovement : MonoBehaviour
     void Update()
     {
         CameraRotator();
-        Movement();
     }
 
-    private void Movement()
+    public void FixedUpdate()
     {
         move.z = Input.GetAxis("Vertical") * walkSpeed;
         move.x = Input.GetAxis("Horizontal") * walkSpeed;
