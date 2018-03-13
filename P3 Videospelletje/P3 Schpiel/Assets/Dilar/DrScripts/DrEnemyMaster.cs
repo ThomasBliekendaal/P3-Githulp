@@ -1,28 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DrEnemyMaster : MonoBehaviour
 {
-    public int health;
+    private NavMeshAgent agent;
+    private Transform navTarget;
+    private Vector3 v = new Vector3(0, 0, 1);
+    public float movSpeed;
 
-	// Use this for initialization
-	void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        navTarget = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
+    void Update()
     {
-		
-	}
-    
-    public void Death()
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        agent.SetDestination(navTarget.position);
+        transform.Translate(v * movSpeed * Time.deltaTime);
     }
 }
