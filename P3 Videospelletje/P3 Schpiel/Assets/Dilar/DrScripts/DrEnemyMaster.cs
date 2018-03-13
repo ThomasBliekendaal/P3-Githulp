@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class DrEnemyMaster : MonoBehaviour
 {
+
     private NavMeshAgent agent;
     private Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
-    public float movSpeed;
+
+    public float moveSpeed;
+    public int health = 100;
 
     void Start()
     {
@@ -20,6 +23,20 @@ public class DrEnemyMaster : MonoBehaviour
     void Update()
     {
         agent.SetDestination(navTarget.position);
-        transform.Translate(v * movSpeed * Time.deltaTime);
+        transform.Translate(v * moveSpeed * Time.deltaTime);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

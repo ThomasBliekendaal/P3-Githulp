@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DrMovement : MonoBehaviour
 {
+    public Animator weaponPosition;
     public Transform playerCamera;
     public Vector3 move;
     public Vector3 rotateValue;
@@ -12,6 +13,7 @@ public class DrMovement : MonoBehaviour
     public int walkSpeed;
     public int sprintSpeed;
     public int walkReset;
+    public bool walking = false;
 
     // Use this for initialization
     void Start()
@@ -31,6 +33,16 @@ public class DrMovement : MonoBehaviour
         move.x = Input.GetAxis("Horizontal") * walkSpeed;
         move *= Time.deltaTime;
         transform.Translate(move);
+
+        if (move.z > 0 ||  move.z < 0 || move.x > 0 || move.x < 0)
+        {
+            weaponPosition.SetBool("Walking", true);
+        }
+        else
+        {
+            weaponPosition.SetBool("Walking", false);
+        }
+
 
         if (Input.GetButton("Sprint"))
         {
