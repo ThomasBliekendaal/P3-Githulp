@@ -19,6 +19,7 @@ public class DrMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        walkReset = walkSpeed;
     }
 
     // Update is called once per frame
@@ -47,10 +48,13 @@ public class DrMovement : MonoBehaviour
         if (Input.GetButton("Sprint"))
         {
             walkSpeed = (walkSpeed = sprintSpeed);
+            weaponPosition.SetBool("Running", true);
+            weaponPosition.SetBool("Walking", false);
         }
         else
         {
             walkSpeed = walkReset;
+            weaponPosition.SetBool("Running", false);
         }
     }
 
