@@ -6,6 +6,8 @@ public class OneHandedMelee : MonoBehaviour
 {
     public Animator animator;
 
+    public int dmg;
+
     // Use this for initialization
     void Start()
     {
@@ -15,11 +17,15 @@ public class OneHandedMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == ("enemy"))
         {
-            Debug.Log("ItWorks");
-            animator.SetBool("MBAttack", true);
-            animator.SetBool("MBAttack", false);
+            Debug.Log("Yaf");
+            other.gameObject.GetComponent<DrEnemyMaster>().TakeDamage(dmg);
         }
     }
 }
