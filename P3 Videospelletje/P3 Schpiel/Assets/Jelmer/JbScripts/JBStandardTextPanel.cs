@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class JBStandardTextPanel : MonoBehaviour {
     public Text talkerName;
     public Text textPanel;
-    public string inputText;
     public string inputName;
+    public string[] inputText;
     public bool start;
     public bool active;
+    public int current;
 
 	// Use this for initialization
 	void Start () {
@@ -20,24 +21,36 @@ public class JBStandardTextPanel : MonoBehaviour {
 	void Update () {
 		if(start == true)
         {
-            if(active == false)
+            start = false;
+            if (active == false)
             {
-                start = false;
-                StopCoroutine(StartInuput());
-                StartCoroutine(StartInuput());
-                active = true;
+                if(current <= inputText.Length - 1)
+                {
+                    StopCoroutine(StartInuput());
+                    StartCoroutine(StartInuput());
+                    active = true;
+                }
+                else
+                {
+                    current = 0;
+                    StopCoroutine(StartInuput());
+                    StartCoroutine(StartInuput());
+                    active = true;
+                }
             }
         }
 	}
+
     public IEnumerator StartInuput()
     {
         textPanel.text = "";
         talkerName.text = inputName;
-        foreach (char letter in inputText.ToCharArray())
+        foreach (char letter in inputText[current].ToCharArray())
         {
             textPanel.text += letter;
             yield return null;
         }
+        current += 1;
         active = false;
     }
 }
