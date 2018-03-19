@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class OneHandedMelee : MonoBehaviour
 {
-    public Animator animator;
+    public Animator weaponHolder;
+
+    public bool moonblade;
+    public bool attacking;
 
     public int dmg;
 
@@ -17,15 +20,30 @@ public class OneHandedMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (moonblade == true)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                weaponHolder.SetBool("MBAttack", true);
+                attacking = true;
+            }
+            else
+            {
+                weaponHolder.SetBool("MBAttack", false);
+            }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == ("enemy"))
+        if (other.transform.tag == ("Enemy"))
         {
-            Debug.Log("Yaf");
-            other.gameObject.GetComponent<DrEnemyMaster>().TakeDamage(dmg);
+            if (attacking == true)
+            {
+                other.GetComponent<DrEnemyMaster>().TakeDamage(dmg);
+                attacking = false;
+                Debug.Log("Plague");
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ public class DrFlintlock : MonoBehaviour
     public Transform camPos;
     public Animator weaponPositionL;
 
+    public GameObject blood;
+
     public int dmg = 10;
     public int range = 25;
 
@@ -32,6 +34,10 @@ public class DrFlintlock : MonoBehaviour
                 Shoot();
             }
         }
+        else
+        {
+            weaponPositionL.SetBool("FlintlockShot", false);
+        }
     }
 
     private void Shoot()
@@ -44,15 +50,14 @@ public class DrFlintlock : MonoBehaviour
             if (mark != null)
             {
                 mark.TakeDamage(dmg);
+                GameObject g = Instantiate(blood, hit.point, Quaternion.identity, hit.transform);
             }
-            Debug.Log(hit.transform.name);
         }
     }
 
     public IEnumerator FireRate()
     {
         yield return new WaitForSeconds(0.3f);
-        weaponPositionL.SetBool("FlintlockShot", false);
         mayFire = true;
     }
 }
