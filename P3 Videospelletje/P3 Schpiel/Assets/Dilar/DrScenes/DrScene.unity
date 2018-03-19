@@ -1613,6 +1613,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2038599348 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 8a33c7de6e46b8e45997c9ad3c142a29, type: 3}
+  m_PrefabInternal: {fileID: 496715887}
+--- !u!114 &2038599349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2038599348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1a6bcaf0302fc4293beaf8ce612277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camPos: {fileID: 813632970}
+  weaponPositionL: {fileID: 192233763}
+  dmg: 20
+  range: 25
+  iRange: 2
+  mayFire: 1
 --- !u!1 &2062326121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1647,6 @@ GameObject:
   - component: {fileID: 2062326122}
   - component: {fileID: 2062326126}
   - component: {fileID: 2062326127}
-  - component: {fileID: 2062326128}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1728,7 +1748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPosition: {fileID: 1607032856}
-  weaponPositionL: {fileID: 192233763}
   playerCamera: {fileID: 813632970}
   move: {x: 0, y: 0, z: 0}
   rotateValue: {x: 0, y: 0, z: 0}
@@ -1738,18 +1757,3 @@ MonoBehaviour:
   sprintSpeed: 10
   walkReset: 9
   walking: 0
---- !u!114 &2062326128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2062326121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841fcb70de0525a4482726d666c9046c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camPos: {fileID: 813632970}
-  dmg: 20
-  range: 25
-  iRange: 2
