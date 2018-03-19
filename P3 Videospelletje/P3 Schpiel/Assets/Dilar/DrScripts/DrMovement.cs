@@ -5,14 +5,18 @@ using UnityEngine;
 public class DrMovement : MonoBehaviour
 {
     public Animator weaponPosition;
+
     public Transform playerCamera;
+
     public Vector3 move;
     public Vector3 rotateValue;
     public Vector3 rotateValueCamera;
+
     public int sensitivity;
     public int walkSpeed;
     public int sprintSpeed;
     public int walkReset;
+
     public bool walking = false;
 
     // Use this for initialization
