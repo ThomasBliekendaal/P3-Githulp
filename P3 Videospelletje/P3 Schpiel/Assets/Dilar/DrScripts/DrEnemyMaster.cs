@@ -9,6 +9,7 @@ public class DrEnemyMaster : MonoBehaviour
     private NavMeshAgent agent;
     private Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
+    public GameObject cloud;
 
     public float moveSpeed;
     public int health = 100;
@@ -38,5 +39,7 @@ public class DrEnemyMaster : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        GameObject g = Instantiate(cloud, transform.position, transform.rotation);
+        Destroy(g, 10);
     }
 }

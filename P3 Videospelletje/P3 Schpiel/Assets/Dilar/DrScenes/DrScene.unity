@@ -1268,6 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759ae5d171610594caa7fd49453837ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloud: {fileID: 1138531999148718, guid: e80952c95dd13da4c918dcbf76a01946, type: 2}
   moveSpeed: 1.3
   health: 100
 --- !u!1 &1607032854

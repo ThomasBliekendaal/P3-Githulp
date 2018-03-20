@@ -42,7 +42,6 @@ public class OneHandedMelee : MonoBehaviour
             {
                 other.GetComponent<DrEnemyMaster>().TakeDamage(dmg);
                 attacking = false;
-                Debug.Log("Plague");
             }
         }
     }
