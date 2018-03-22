@@ -13,12 +13,12 @@ public class TbProjectileScript : TbWeaponScript {
 	void Update () {
 		
 	}
-    public void PDoDamage()
-    {
-
-    }
     private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Enemy")
+        {
+            float eH = collision.gameObject.transform.GetComponent<TbEnemyScript>().enemyHealth;
+            eH -= damage;
+        }
     }
 }
