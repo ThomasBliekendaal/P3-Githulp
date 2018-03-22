@@ -11,6 +11,7 @@ public class JBStandardTextPanel : MonoBehaviour {
     public bool start;
     public bool active;
     public int current;
+    public GameObject[] options;
 
 	// Use this for initialization
 	void Start () {
@@ -32,10 +33,8 @@ public class JBStandardTextPanel : MonoBehaviour {
                 }
                 else
                 {
-                    current = 0;
-                    StopCoroutine(StartInuput());
-                    StartCoroutine(StartInuput());
-                    active = true;
+                    textPanel.text = "";
+                    for () ;
                 }
             }
         }
