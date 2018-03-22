@@ -282,9 +282,10 @@ GameObject:
   - component: {fileID: 200674824}
   - component: {fileID: 200674823}
   - component: {fileID: 200674822}
+  - component: {fileID: 200674826}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,6 +356,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &200674826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200674821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0d0637437961946b78acbd17c2d6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 100
 --- !u!1 &251537572
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4493054332221862, guid: cab9d64073551e0449ee2e9aa1e89cce, type: 2}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 1721102628599454, guid: cab9d64073551e0449ee2e9aa1e89cce, type: 2}
       propertyPath: m_Name
@@ -1513,7 +1526,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4493054332221862, guid: cab9d64073551e0449ee2e9aa1e89cce, type: 2}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 1721102628599454, guid: cab9d64073551e0449ee2e9aa1e89cce, type: 2}
       propertyPath: m_Name
@@ -5886,7 +5899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656c378b62a77b94ab8d7fbfc1436ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
   manaUsage: 0
   barrel: {fileID: 251537573}
   fireRate: 0.2

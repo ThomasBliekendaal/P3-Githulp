@@ -14,4 +14,8 @@ public class TbEnemyScript : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void TakeDamage(float damage)
+    {
+        enemyHealth -= damage;
+    }
 }

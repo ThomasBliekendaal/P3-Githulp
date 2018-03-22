@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 23618132391192942}
   - component: {fileID: 65663888944460078}
   - component: {fileID: 54860224908276414}
+  - component: {fileID: 114185072191686010}
   m_Layer: 0
   m_Name: TbMagiDartP
   m_TagString: Untagged
@@ -70,8 +71,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989582855426908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8320389, y: 1.746, z: 1.4154315}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4878200048389328}
@@ -173,6 +174,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017431384, y: 0.017431384, z: 0.049802575}
   m_Center: {x: 0.000000016763806, y: 9.313226e-10, z: 0.02490128}
+--- !u!114 &114185072191686010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989582855426908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3eb3c4b671583458311d6feeda3d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  manaUsage: 0
+  barrel: {fileID: 0}
+  fireRate: 0
+  projectile: {fileID: 0}
+  aoe: 0
+  aoeToggle: 0
+  projectileVel: 0
+  raycast: 0
+  canFire: 1
+  spread: {x: 0, y: 0, z: 0}
+  deathParticle: {fileID: 1195119030069320, guid: 9007c8017ffc095419a90120573ff521,
+    type: 2}
 --- !u!198 &198553665444120670
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TbProjectileScript : TbWeaponScript {
+    public GameObject deathParticle;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +18,13 @@ public class TbProjectileScript : TbWeaponScript {
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            float eH = collision.gameObject.transform.GetComponent<TbEnemyScript>().enemyHealth;
-            eH -= damage;
+            collision.gameObject.transform.GetComponent<TbEnemyScript>().TakeDamage(damage);
+        }
+        if (collision.gameObject)
+        {
+            GameObject g = Instantiate(deathParticle,transform.position,transform.rotation);
+            Destroy(gameObject);
+            Destroy(g, 1);
         }
     }
 }
