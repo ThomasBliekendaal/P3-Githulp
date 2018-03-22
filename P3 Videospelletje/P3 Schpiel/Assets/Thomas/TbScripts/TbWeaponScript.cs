@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class TbWeaponScript : MonoBehaviour {
     public float damage;
+    public float manaUsage;
     public Transform barrel;
     public float fireRate;
     public GameObject projectile;
     public float aoe;
     public bool aoeToggle;
     public float projectileVel;
-    public bool auto;
     public bool raycast;
     public bool canFire = true;
+    public Vector3 spread;
 
 	
     public void Fire()
     {
-        if (auto == true)
+        if (Input.GetButton("Fire1"))
         {
-            if (Input.GetButton("Fire1"))
+            if (canFire)
             {
-                if (canFire)
-                {
-                    ShootBullet();
-                    canFire = false;
-                    StartCoroutine(Rof());
-                }
+                ShootBullet();
+                canFire = false;
+                StartCoroutine(Rof());
             }
         }
     }
