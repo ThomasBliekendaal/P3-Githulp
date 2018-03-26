@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrMoonBladeMan : MonoBehaviour
+public class OneHandedMelee : MonoBehaviour
 {
 
-    public DrWeaponTemplate weapon;
+    public Animator animation;
+
+    public int DMG;
+
+    public bool attacking;
 
     // Use this for initialization
     void Start()
@@ -18,12 +22,12 @@ public class DrMoonBladeMan : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            weapon.animation.SetBool("MBAttack", true);
-            weapon.attacking = true;
+            animation.SetBool("OneH-Attack", true);
+            attacking = true;
         }
         else
         {
-            weapon.animation.SetBool("MBAttack", false);
+            animation.SetBool("OneH-Attack", false);
         }
     }
 
@@ -31,10 +35,10 @@ public class DrMoonBladeMan : MonoBehaviour
     {
         if (other.transform.tag == ("Enemy"))
         {
-            if (weapon.attacking == true)
+            if (attacking == true)
             {
-                other.GetComponent<DrEnemyMaster>().TakeDamage(weapon.DMG);
-                weapon.attacking = false;
+                other.GetComponent<DrEnemyMaster>().TakeDamage(DMG);
+                attacking = false;
             }
         }
     }
