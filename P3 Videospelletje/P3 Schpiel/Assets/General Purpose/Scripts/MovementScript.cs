@@ -40,7 +40,7 @@ public class MovementScript : MonoBehaviour {
         }
         if (Input.GetButton("Sprint"))
         {
-            walkSpeed = (walkSpeed = sprintSpeed);
+            walkSpeed = sprintSpeed;
         }
         else
         {
