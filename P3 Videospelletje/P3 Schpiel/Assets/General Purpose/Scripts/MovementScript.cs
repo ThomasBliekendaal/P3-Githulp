@@ -23,7 +23,7 @@ public class MovementScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         float translation = Input.GetAxis("Vertical") * walkSpeed;
         float strafe = Input.GetAxis("Horizontal") * walkSpeed;
         translation *= Time.deltaTime;
