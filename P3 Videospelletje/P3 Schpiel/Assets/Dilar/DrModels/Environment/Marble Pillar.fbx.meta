@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7dc7a3ca16a216249be9c9b528fbaaf8
-timeCreated: 1522324080
+guid: fc3d3f8a6e273444fb74faaa61e81eab
+timeCreated: 1522322621
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: DrLantern
+    4300000: Marble Pillar
   externalObjects: {}
   materials:
     importMaterials: 1
