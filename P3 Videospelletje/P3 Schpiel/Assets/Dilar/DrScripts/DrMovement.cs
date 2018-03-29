@@ -51,7 +51,7 @@ public class DrMovement : MonoBehaviour
 
         if (Input.GetButton("Sprint"))
         {
-            walkSpeed = (walkSpeed = sprintSpeed);
+            walkSpeed = sprintSpeed;
             weaponPosition.SetBool("Running", true);
             weaponPosition.SetBool("Walking", false);
         }

@@ -1,23 +1,23 @@
 fileFormatVersion: 2
-guid: aac2fd4a72c161e4c8f5cd4af16a61a2
-timeCreated: 1521058738
+guid: c97385b08167b7045a888bec54325bb6
+timeCreated: 1522322449
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cube.001
-    100002: Cube.002
-    100004: //RootNode
-    400000: Cube.001
-    400002: Cube.002
-    400004: //RootNode
+    100000: //RootNode
+    100002: Wall
+    100004: Wall.001
+    400000: //RootNode
+    400002: Wall
+    400004: Wall.001
     2100000: No Name
-    2300000: Cube.001
-    2300002: Cube.002
-    3300000: Cube.001
-    3300002: Cube.002
-    4300000: Cube.001
-    4300002: Cube.002
+    2300000: Wall
+    2300002: Wall.001
+    3300000: Wall
+    3300002: Wall.001
+    4300000: Wall.001
+    4300002: Wall
   externalObjects: {}
   materials:
     importMaterials: 1
