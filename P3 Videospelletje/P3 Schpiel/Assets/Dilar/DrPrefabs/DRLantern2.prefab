@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4026944748356112}
   - component: {fileID: 33498609107213400}
   - component: {fileID: 23019300897239102}
+  - component: {fileID: 65637252447439918}
   m_Layer: 0
   m_Name: DRLantern2
   m_TagString: Untagged
@@ -99,14 +100,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908500714805964}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -6.6147747, y: 0.26718482, z: -5.424409}
+  m_LocalRotation: {x: -0.7061378, y: 0.03700707, z: 0.03700707, w: 0.7061378}
+  m_LocalPosition: {x: -7.23, y: 0.27, z: -23.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4949113359049876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 6, z: 0}
 --- !u!4 &4093587474092078
 Transform:
   m_ObjectHideFlags: 1
@@ -176,7 +177,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a18df9650aa7a4b488f04e6bc78fe6ab, type: 2}
+  - {fileID: 2100000, guid: d615fb668142b44469655815c69c9a9a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -244,6 +245,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619194027344894}
   m_Mesh: {fileID: 4300000, guid: e90737f309daa9b42aa5a9902ca7f5cb, type: 3}
+--- !u!65 &65637252447439918
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908500714805964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6308904, y: 0.3327744, z: 4.071604}
+  m_Center: {x: 0.000014449692, y: -0.000029505636, z: 2.0358067}
 --- !u!108 &108249889511266416
 Light:
   m_ObjectHideFlags: 1
@@ -253,13 +266,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.9950304, g: 1, b: 0.6397059, a: 1}
+  m_Color: {r: 1, g: 0.84178495, b: 0.5588235, a: 1}
   m_Intensity: 1
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -289,7 +302,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.96450305, g: 1, b: 0.63235295, a: 1}
+  m_Color: {r: 1, g: 0.9290061, b: 0.63235295, a: 1}
   m_Intensity: 2
   m_Range: 15
   m_SpotAngle: 30
@@ -325,7 +338,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.98427993, b: 0.77205884, a: 1}
+  m_Color: {r: 1, g: 0.8823529, b: 0.5735294, a: 1}
   m_Intensity: 2
   m_Range: 15
   m_SpotAngle: 30
