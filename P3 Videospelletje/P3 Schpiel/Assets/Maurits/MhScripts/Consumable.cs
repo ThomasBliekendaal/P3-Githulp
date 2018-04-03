@@ -17,9 +17,9 @@ public class Consumable : Item {
     {
 
     }
-    public override void Interact()
+    public override void Interact(GameObject target)
     {
         Effect();
-        base.Interact();
+        interactor = target;
     }
 }

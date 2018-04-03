@@ -13,8 +13,8 @@ public class Item : MonoBehaviour {
 	void Update () {
 		
 	}
-    public virtual void Interact(GameObject interact)
+    public virtual void Interact(GameObject target)
     {
-        interactor = interact;
+
     }
 }
