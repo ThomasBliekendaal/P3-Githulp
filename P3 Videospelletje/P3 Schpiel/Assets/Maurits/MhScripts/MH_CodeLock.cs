@@ -9,11 +9,12 @@ public class MH_CodeLock : MonoBehaviour {
     public GameObject codeUI;
     public int solution;
     public string convSol;
+    private bool canInteract = true;
 	// Use this for initialization
 	void Start () {
         solution = Random.Range(1000, 99999);
         convSol = solution.ToString();
-        code.GetComponent<TextMesh>().text = solution.ToString();
+        code.GetComponent<Text>().text = solution.ToString();
 	}
 	
 	// Update is called once per frame
@@ -26,29 +27,56 @@ public class MH_CodeLock : MonoBehaviour {
     }
     public void CheckCode()
     {
-        solution.ToString();
-        if (convSol == enteredCode.GetComponent<Text>().text)
+        if (canInteract)
         {
-            Open();
+            if (convSol == enteredCode.GetComponent<Text>().text)
+            {
+                Open();
+            }
+            else
+            {
+                enteredCode.GetComponent<Text>().text = "WRONG";
+                canInteract = false;
+                StartCoroutine(Wait());
+            }
         }
     }
     public void Open()
     {
-        print("Hi");
+        enteredCode.GetComponent<Text>().text = "unlocked";
+        canInteract = false;
+        StartCoroutine(Unlock());
     }
     public void CloseUI()
     {
-
+        codeUI.SetActive(false);
+        RemoveNum();
     }
     public void EnterNum(string number)
     {
-        if(enteredCode.GetComponent<Text>().text.Length < 5)
+        if(enteredCode.GetComponent<Text>().text.Length < 7)
         {
             enteredCode.GetComponent<Text>().text += number;
         }
     }
     public void RemoveNum()
     {
-        enteredCode.GetComponent<Text>().text = null;
+        if (canInteract)
+        {
+            enteredCode.GetComponent<Text>().text = null;
+        }
+    }
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2);
+        canInteract = true;
+        RemoveNum();
+    }
+    public IEnumerator Unlock()
+    {
+        yield return new WaitForSeconds(1);
+        RemoveNum();
+        codeUI.SetActive(false);
+        print("Hi");
     }
 }

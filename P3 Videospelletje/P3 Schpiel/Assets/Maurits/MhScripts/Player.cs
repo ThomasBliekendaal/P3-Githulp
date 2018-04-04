@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public GameObject cam;
     public Vector3 movePos;
     public Vector3 rotAmt;
     public float moveSpeed;
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour {
     public RaycastHit hit;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour {
     }
     public void Interact()
     {
-        Physics.Raycast(transform.position, transform.forward, out hit, 50);
+        Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5000);
         if(hit.transform.gameObject.tag == "Interactable")
         {
             hit.transform.gameObject.GetComponent<Item>().Interact(gameObject);
