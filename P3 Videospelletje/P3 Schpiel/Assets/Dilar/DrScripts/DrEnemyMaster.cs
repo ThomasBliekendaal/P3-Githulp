@@ -7,9 +7,13 @@ public class DrEnemyMaster : MonoBehaviour
 {
 
     private NavMeshAgent agent;
+
+    public Transform player;
     private Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
     public GameObject cloud;
+    public GameObject healthbar;
+
 
     public float moveSpeed;
     public int health = 100;
@@ -25,6 +29,8 @@ public class DrEnemyMaster : MonoBehaviour
     {
         agent.SetDestination(navTarget.position);
         transform.Translate(v * moveSpeed * Time.deltaTime);
+
+        healthbar.transform.LookAt(player);
     }
 
     public void TakeDamage(int damage)
