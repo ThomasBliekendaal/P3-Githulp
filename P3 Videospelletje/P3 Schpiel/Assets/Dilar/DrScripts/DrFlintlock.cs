@@ -51,6 +51,7 @@ public class DrFlintlock : MonoBehaviour
             {
                 mark.TakeDamage(dmg);
                 GameObject g = Instantiate(blood, hit.point, Quaternion.identity, hit.transform);
+                Destroy(g, 2);
             }
         }
     }
