@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4127527914325510}
+  - component: {fileID: 65308454157874322}
   m_Layer: 0
   m_Name: DrSword01
   m_TagString: Untagged
@@ -255,3 +256,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569947509647526}
   m_Mesh: {fileID: 4300000, guid: 32fc833e16ffd5e469e9bbf232ad8d46, type: 3}
+--- !u!65 &65308454157874322
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1224226509620054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15822613, y: 2.2719283, z: 0.78723454}
+  m_Center: {x: 0.09295112, y: 1.4856738, z: -0.00558579}
