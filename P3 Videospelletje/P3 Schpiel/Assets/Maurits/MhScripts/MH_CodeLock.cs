@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MH_CodeLock : MonoBehaviour {
     public GameObject code;
+    public GameObject enteredCode;
     public GameObject codeUI;
     public int solution;
     public string convSol;
@@ -26,7 +27,7 @@ public class MH_CodeLock : MonoBehaviour {
     public void CheckCode()
     {
         solution.ToString();
-        if (convSol == codeUI.GetComponentInChildren<Text>().text)
+        if (convSol == enteredCode.GetComponent<Text>().text)
         {
             Open();
         }
@@ -38,5 +39,16 @@ public class MH_CodeLock : MonoBehaviour {
     public void CloseUI()
     {
 
+    }
+    public void EnterNum(string number)
+    {
+        if(enteredCode.GetComponent<Text>().text.Length < 5)
+        {
+            enteredCode.GetComponent<Text>().text += number;
+        }
+    }
+    public void RemoveNum()
+    {
+        enteredCode.GetComponent<Text>().text = null;
     }
 }
