@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class DrEnemyMaster : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class DrEnemyMaster : MonoBehaviour
     private Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
     public GameObject cloud;
-    public GameObject healthbar;
+    public GameObject healthUI;
+    public GameObject healthBar;
 
 
     public float moveSpeed;
-    public int health = 100;
+    public float maxHP;
+    public float health;
 
     void Start()
     {
@@ -30,7 +33,9 @@ public class DrEnemyMaster : MonoBehaviour
         agent.SetDestination(navTarget.position);
         transform.Translate(v * moveSpeed * Time.deltaTime);
 
-        healthbar.transform.LookAt(player);
+        healthUI.transform.LookAt(player);
+
+        healthBar.GetComponent<Image>().fillAmount = 1 / maxHP * health;
     }
 
     public void TakeDamage(int damage)
