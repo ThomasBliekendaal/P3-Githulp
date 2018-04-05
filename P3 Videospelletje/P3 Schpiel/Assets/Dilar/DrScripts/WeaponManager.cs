@@ -5,33 +5,38 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
 
-    public GameObject[] meleeWeapons;
-    public GameObject[] rangedWeapons;
-    public int current;
+    public GameObject[] Weapons;
 
-	// Use this for initialization
-	void Start ()
+    public int cur;
+
+    public void Start()
     {
-        meleeWeapons = new GameObject[5];
-        meleeWeapons = new GameObject[4];
+
     }
-	
-	public void WeaponSwitch()
-    {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            Debug.Log("YESS");
-            meleeWeapons[current].SetActive(false);
-            meleeWeapons[current++].SetActive(true);
-            current++;
-        }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+    public void Update()
+    {
+        if (Input.GetButtonDown("Interact"))
         {
-            Debug.Log("REEEE");
-            meleeWeapons[current].SetActive(false);
-            meleeWeapons[current--].SetActive(true);
-            current--;
+            cur += 1;
+            SwitchWeapons();
+        }
+    }
+
+    public void SwitchWeapons()
+    {
+        foreach (GameObject weapon in Weapons)
+        {
+            weapon.SetActive(false);
+            if (weapon == Weapons[cur])
+            {
+                weapon.SetActive(true);
+            }
+
+            if (cur > 2)
+            {
+                cur = 0;
+            }
         }
     }
 }

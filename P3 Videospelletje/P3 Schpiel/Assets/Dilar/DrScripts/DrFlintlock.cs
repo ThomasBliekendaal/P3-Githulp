@@ -32,6 +32,7 @@ public class DrFlintlock : MonoBehaviour
             {
                 weaponPositionL.SetBool("FlintlockShot", true);
                 Shoot();
+                mayFire = false;
             }
         }
         else
@@ -58,7 +59,7 @@ public class DrFlintlock : MonoBehaviour
 
     public IEnumerator FireRate()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.7f);
         mayFire = true;
     }
 }
