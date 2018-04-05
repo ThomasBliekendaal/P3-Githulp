@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: c78b46104f410424d8dd13951780d7ad
-timeCreated: 1522848586
+guid: 624de07c12aaeb54a897e84bb6e228d9
+timeCreated: 1522920584
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Material.001
+    2100000: Material
     2300000: //RootNode
     3300000: //RootNode
     4300000: Circle
