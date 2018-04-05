@@ -7,7 +7,7 @@ public class MhCamera : MonoBehaviour {
     public float CamSensitivity;
 	// Use this for initialization
 	void Start () {
-		
+        Cursor.lockState = CursorLockMode.Locked;
 	}
 	
 	// Update is called once per frame
