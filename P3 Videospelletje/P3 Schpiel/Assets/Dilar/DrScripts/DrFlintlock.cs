@@ -11,6 +11,7 @@ public class DrFlintlock : MonoBehaviour
     public Animator weaponPositionL;
 
     public GameObject blood;
+    public GameObject marker;
 
     public int dmg = 10;
     public int range = 25;
@@ -53,6 +54,13 @@ public class DrFlintlock : MonoBehaviour
                 mark.TakeDamage(dmg);
                 GameObject g = Instantiate(blood, hit.point, Quaternion.identity, hit.transform);
                 Destroy(g, 2);
+            }
+            if (mark == null)
+            {
+                if (hit.transform.tag == ("Environment"))
+                {
+                    GameObject h = Instantiate(marker, hit.point, Quaternion.identity, hit.transform);
+                }
             }
         }
     }
