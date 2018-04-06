@@ -15,6 +15,7 @@ public class JBCharacterMovement : MonoBehaviour {
     public float crouchLenght;
     public Vector3 normalHight;
     public Vector3 crouchHight;
+    public GameObject[] currentItem;
 
     public RaycastHit interact;
     
@@ -22,6 +23,8 @@ public class JBCharacterMovement : MonoBehaviour {
         normalLenght = body.transform.localScale.y;
         normalHight.y = head.localPosition.y;
         crouchHight.y = (normalLenght - crouchLenght) / 2 + head.localScale.y - 0.05f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 	
 	void FixedUpdate () {
@@ -50,7 +53,7 @@ public class JBCharacterMovement : MonoBehaviour {
         head.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
         transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
 
-        if (Physics.Raycast(transform.position, transform.forward* 3, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
+        if (Physics.Raycast(head.position, head.transform.forward* 5, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
         {
             interact.transform.gameObject.GetComponent<JBInteractable>().Interacted();
         }
