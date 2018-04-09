@@ -17,6 +17,7 @@ public class MH_GridPuzzle : Item {
 
     public override void Interact(GameObject target)
     {
+        print("Interadted");
         if (enabledd)
         {
             enabledd = false;
