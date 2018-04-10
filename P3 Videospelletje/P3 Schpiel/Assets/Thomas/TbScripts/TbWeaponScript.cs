@@ -37,8 +37,8 @@ public class TbWeaponScript : MonoBehaviour {
     void ShootBullet()
     {
         GameObject p = Instantiate(projectile, barrel.position, barrel.rotation);
-        p.GetComponent<Rigidbody>().velocity = transform.forward * projectileVel;
-        Debug.DrawRay(pCamera.position, transform.forward, Color.red, rayLength);
+        //p.GetComponent<Rigidbody>().velocity = transform.forward * projectileVel;
+        //Debug.DrawRay(pCamera.position, transform.forward, Color.red, rayLength);
         if(Physics.Raycast(pCamera.position,pCamera.forward,out hit))
         {
             p.transform.LookAt(hit.point);

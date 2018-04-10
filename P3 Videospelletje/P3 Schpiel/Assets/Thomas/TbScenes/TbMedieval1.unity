@@ -16334,7 +16334,7 @@ MonoBehaviour:
   projectile: {fileID: 1989582855426908, guid: 2e9e8118cdd0741479e457a87780f228, type: 2}
   aoe: 0
   aoeToggle: 0
-  projectileVel: 5
+  projectileVel: 30
   raycast: 0
   canFire: 0
   spread: {x: 0, y: 0, z: 0}
