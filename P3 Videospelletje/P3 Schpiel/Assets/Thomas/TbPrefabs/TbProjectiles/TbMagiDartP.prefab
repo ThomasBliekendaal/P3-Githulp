@@ -192,10 +192,13 @@ MonoBehaviour:
   projectile: {fileID: 0}
   aoe: 0
   aoeToggle: 0
-  projectileVel: 0
+  projectileVel: 1
   raycast: 0
   canFire: 1
   spread: {x: 0, y: 0, z: 0}
+  pCamera: {fileID: 0}
+  rayLength: 0
+  cube: {fileID: 0}
   deathParticle: {fileID: 1195119030069320, guid: 9007c8017ffc095419a90120573ff521,
     type: 2}
 --- !u!198 &198553665444120670

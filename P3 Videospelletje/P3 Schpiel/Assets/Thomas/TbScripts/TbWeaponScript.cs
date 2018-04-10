@@ -42,9 +42,7 @@ public class TbWeaponScript : MonoBehaviour {
         if(Physics.Raycast(pCamera.position,pCamera.forward,out hit))
         {
             p.transform.LookAt(hit.point);
-            //cube.transform.position = hit.point;
         }
-
     }
 
 
