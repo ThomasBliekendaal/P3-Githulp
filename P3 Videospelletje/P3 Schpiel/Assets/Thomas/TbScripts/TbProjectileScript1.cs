@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TbWandWep : TbWeaponScript {
+public class TbProjectileScript1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        canFire = true;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Fire();
+		
 	}
 }
