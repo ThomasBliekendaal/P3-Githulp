@@ -26,5 +26,6 @@ public class MH_Lantern : Item {
             particleh.Play();
             codeAppear.SetActive(false);
         }
+        target.GetComponent<Player>().canInteract = true;
     }
 }

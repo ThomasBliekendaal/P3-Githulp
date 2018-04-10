@@ -12,8 +12,8 @@ public class MH_GridPuzzle : Item {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 
     public override void Interact(GameObject target)
     {
@@ -28,73 +28,75 @@ public class MH_GridPuzzle : Item {
             gameObject.GetComponentInChildren<ParticleSystem>().Play();
         }
         gameObject.GetComponentInParent<MH_GridChecker>().CheckGrid();
-        Physics.Raycast(transform.position, -transform.right, out hit, 10);
+        Physics.Raycast(transform.position, -transform.forward, out hit, 15);
         if (hit.transform != null)
         {
             if (hit.transform.gameObject.tag == "Interactable")
             {
                 if (hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd)
                 {
-                    enabledd = false;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = false;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 }
                 else
                 {
-                    enabledd = true;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = true;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 }
             }
         }
-        Physics.Raycast(transform.position, transform.up, out hit, 10);
+        Physics.Raycast(transform.position, transform.up, out hit, 15);
         if (hit.transform != null)
         {
             if (hit.transform.gameObject.tag == "Interactable")
             {
                 if (hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd)
                 {
-                    enabledd = false;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = false;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 }
                 else
                 {
-                    enabledd = true;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = true;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 }
             }
         }
-        Physics.Raycast(transform.position, -transform.up, out hit, 10);
+        Physics.Raycast(transform.position, -transform.up, out hit, 15);
         if (hit.transform != null)
         {
             if (hit.transform.gameObject.tag == "Interactable")
             {
                 if (hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd)
                 {
-                    enabledd = false;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = false;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 }
                 else
                 {
-                    enabledd = true;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = true;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 }
             }
         }
-        Physics.Raycast(transform.position, transform.right, out hit, 10);
+        Physics.Raycast(transform.position, transform.forward, out hit, 15);
         if (hit.transform != null)
         {
             if (hit.transform.gameObject.tag == "Interactable")
             {
                 if (hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd)
                 {
-                    enabledd = false;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = false;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 }
                 else
                 {
-                    enabledd = true;
+                    hit.transform.gameObject.GetComponent<MH_GridPuzzle>().enabledd = true;
                     hit.transform.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                 }
             }
         }
+        gameObject.GetComponentInParent<MH_GridChecker>().CheckGrid();
+        target.GetComponent<Player>().canInteract = true;
     }
 }

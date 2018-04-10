@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public float rotSpeed;
     public int health;
     public int armor;
+    public bool canInteract = true;
     public RaycastHit hit;
 	// Use this for initialization
 	void Start () {
@@ -42,10 +43,14 @@ public class Player : MonoBehaviour {
     }
     public void Interact()
     {
-        Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5000);
-        if(hit.transform.gameObject.tag == "Interactable")
+        if (canInteract)
         {
-            hit.transform.gameObject.GetComponent<Item>().Interact(gameObject);
+            canInteract = false;
+            Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5000);
+            if (hit.transform.gameObject.tag == "Interactable")
+            {
+                hit.transform.gameObject.GetComponent<Item>().Interact(gameObject);
+            }
         }
     }
 }
