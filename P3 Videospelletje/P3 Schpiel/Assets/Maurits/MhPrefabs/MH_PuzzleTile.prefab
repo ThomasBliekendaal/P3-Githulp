@@ -9,47 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1704915782912330}
+  m_RootGameObject: {fileID: 1686048902425430}
   m_IsPrefabParent: 1
---- !u!1 &1704915782912330
+--- !u!1 &1686048902425430
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4431864215160750}
-  - component: {fileID: 33719072226406736}
-  - component: {fileID: 23449982201745702}
-  - component: {fileID: 65515428244583260}
-  - component: {fileID: 95940505748958682}
-  - component: {fileID: 114730846911231586}
+  - component: {fileID: 4439502700074256}
+  - component: {fileID: 33368612578165560}
+  - component: {fileID: 23697289366121498}
+  - component: {fileID: 65564613120416988}
+  - component: {fileID: 114306214772235954}
   m_Layer: 0
-  m_Name: MH_JailDoorWall
+  m_Name: MH_PuzzleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4431864215160750
+--- !u!4 &4439502700074256
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 14.389, y: 0.4318046, z: -6.333}
+  m_GameObject: {fileID: 1686048902425430}
+  m_LocalRotation: {x: -0.000000119209275, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.810013, y: -2.7200003, z: -1.3400297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23449982201745702
+--- !u!23 &23697289366121498
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
+  m_GameObject: {fileID: 1686048902425430}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f7a8cc3512306c447b6328b5662d56df, type: 2}
+  - {fileID: 2100000, guid: 79a8c99b8e7f3fa4d8d46879153ecc94, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,52 +77,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33719072226406736
+--- !u!33 &33368612578165560
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
-  m_Mesh: {fileID: 4300000, guid: 574681e571de6db47b54dd72332bf73a, type: 3}
---- !u!65 &65515428244583260
+  m_GameObject: {fileID: 1686048902425430}
+  m_Mesh: {fileID: 4300000, guid: 79a8c99b8e7f3fa4d8d46879153ecc94, type: 3}
+--- !u!65 &65564613120416988
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
+  m_GameObject: {fileID: 1686048902425430}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0795742, y: 0.19999996, z: 1.8437457}
-  m_Center: {x: -0.5399613, y: -0.09999628, z: -0.009931712}
---- !u!95 &95940505748958682
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f4ed6049bc1f1445ba136cc11555395, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114730846911231586
+  m_Size: {x: 1.1274376, y: 1.1274376, z: 0.12618236}
+  m_Center: {x: -0.000000029802322, y: -0.000000059604638, z: 0}
+--- !u!114 &114306214772235954
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704915782912330}
+  m_GameObject: {fileID: 1686048902425430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fc5c589b0cfc344981b919725d5f0a, type: 3}
+  m_Script: {fileID: 11500000, guid: cee269b4ec0719f4e9ad05cc03534132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactor: {fileID: 0}
-  openDoorAnim: {fileID: 0}
+  pressed: 0

@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
             Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5000);
             if (hit.transform.gameObject.tag == "Interactable")
             {
-                hit.transform.gameObject.GetComponent<Item>().Interact(gameObject);
+                hit.transform.gameObject.GetComponent<MH_Item>().Interact(gameObject);
             }
         }
     }

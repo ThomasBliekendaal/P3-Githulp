@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MH_Lantern : Item {
+public class MH_Lantern : MH_Item {
     public ParticleSystem particleh;
     public GameObject codeAppear;
 	// Use this for initialization

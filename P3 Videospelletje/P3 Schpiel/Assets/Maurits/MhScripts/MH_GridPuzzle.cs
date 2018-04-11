@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MH_GridPuzzle : Item {
+public class MH_GridPuzzle : MH_Item {
     public RaycastHit hit;
     public bool enabledd;
 	// Use this for initialization

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPotion : Potion {
-    public int healthAdd;
+public class MH_Door : MH_Item {
+    public Animation openDoorAnim;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,8 +13,8 @@ public class HealthPotion : Potion {
 	void Update () {
 		
 	}
-    public override void Effect()
+    public override void Interact(GameObject target)
     {
-        base.Effect();
+
     }
 }
