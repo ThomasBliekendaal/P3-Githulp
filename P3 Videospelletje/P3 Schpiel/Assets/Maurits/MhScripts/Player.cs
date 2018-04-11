@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public int health;
     public int armor;
     public bool canInteract = true;
+    public bool hasKey;
     public RaycastHit hit;
 	// Use this for initialization
 	void Start () {
@@ -45,11 +46,14 @@ public class Player : MonoBehaviour {
     {
         if (canInteract)
         {
-            canInteract = false;
             Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5000);
-            if (hit.transform.gameObject.tag == "Interactable")
+            if(hit.transform != null)
             {
-                hit.transform.gameObject.GetComponent<MH_Item>().Interact(gameObject);
+                if (hit.transform.gameObject.tag == "Interactable")
+                {
+                    canInteract = false;
+                    hit.transform.gameObject.GetComponent<MH_Item>().Interact(gameObject);
+                }
             }
         }
     }

@@ -36,6 +36,7 @@ public class MH_HallStand : MonoBehaviour {
                 if (current >= dialog.Length)
                 {
                     dialogMenu.SetActive(false);
+                    GameObject.FindWithTag("Player").GetComponent<Player>().moveSpeed = 50;
                     enabledd = false;
                     current = 0;
                     firstTime = true;
@@ -52,6 +53,7 @@ public class MH_HallStand : MonoBehaviour {
     {
         if (canSpawnNewText && enabledd && firstTime)
         {
+            GameObject.FindWithTag("Player").GetComponent<Player>().moveSpeed = 0;
             firstTime = false;
             dialogMenu.SetActive(true);
             dialogName.GetComponent<Text>().text = nameOf;

@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33719072226406736}
   - component: {fileID: 23449982201745702}
   - component: {fileID: 65515428244583260}
-  - component: {fileID: 95940505748958682}
   - component: {fileID: 114730846911231586}
+  - component: {fileID: 111652747805605318}
   m_Layer: 0
   m_Name: MH_JailDoorWall
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,23 +97,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0795742, y: 0.19999996, z: 1.8437457}
   m_Center: {x: -0.5399613, y: -0.09999628, z: -0.009931712}
---- !u!95 &95940505748958682
-Animator:
-  serializedVersion: 3
+--- !u!111 &111652747805605318
+Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704915782912330}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f4ed6049bc1f1445ba136cc11555395, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 2f4da0550b6f7104481db286212c0c39, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 2f4da0550b6f7104481db286212c0c39, type: 2}
+  - {fileID: 7400000, guid: a24f73f55419d344b8d908d31074e031, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114730846911231586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,4 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactor: {fileID: 0}
-  openDoorAnim: {fileID: 0}
+  opened: 0
