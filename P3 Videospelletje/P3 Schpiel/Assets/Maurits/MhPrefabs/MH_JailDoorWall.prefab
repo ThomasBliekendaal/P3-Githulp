@@ -108,7 +108,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 2f4da0550b6f7104481db286212c0c39, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 2f4da0550b6f7104481db286212c0c39, type: 2}
-  - {fileID: 7400000, guid: a24f73f55419d344b8d908d31074e031, type: 2}
+  - {fileID: 7400000, guid: cb813de6ecb2c1543a54bfd746065417, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactor: {fileID: 0}
   opened: 0
+  keyDoor: 0

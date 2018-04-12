@@ -21,19 +21,31 @@ public class MH_Door : MH_Item {
         {
             if (keyDoor)
             {
-                if (target.GetComponent<Player>().hasKey)
+                if (target.GetComponent<MH_Player>().hasKey)
                 {
-                    target.GetComponent<Player>().hasKey = false;
+                    target.GetComponent<MH_Player>().hasKey = false;
                     gameObject.GetComponent<Animation>().Play("MH_KeyDoorOpen");
                     opened = true;
+
                 }
             }
             else
             {
                 gameObject.GetComponent<Animation>().Play("MH_DoorOpen");
                 opened = true;
+                StartCoroutine(Timer(target, 4));
             }
         }
-        target.GetComponent<Player>().canInteract = true;
+        else
+        {
+            gameObject.GetComponent<Animation>().Play("MH_DoorClose");
+            opened = false;
+            StartCoroutine(Timer(target, 1.8f));
+        }
+    }
+    public IEnumerator Timer(GameObject target, float time)
+    {
+        yield return new WaitForSeconds(time);
+        target.GetComponent<MH_Player>().canInteract = true;
     }
 }

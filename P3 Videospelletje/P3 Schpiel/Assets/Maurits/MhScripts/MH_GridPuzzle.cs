@@ -97,6 +97,6 @@ public class MH_GridPuzzle : MH_Item {
             }
         }
         gameObject.GetComponentInParent<MH_GridChecker>().CheckGrid();
-        target.GetComponent<Player>().canInteract = true;
+        target.GetComponent<MH_Player>().canInteract = true;
     }
 }

@@ -38,7 +38,7 @@ public class MH_Key : MH_Item {
                     {
                         conUI.SetActive(false);
                         disabled = true;
-                        interactor.GetComponent<Player>().canInteract = true;
+                        interactor.GetComponent<MH_Player>().canInteract = true;
                     }
                     else
                     {
@@ -65,14 +65,14 @@ public class MH_Key : MH_Item {
         if(disabled == false)
         {
             interactor = target;
-            target.GetComponent<Player>().hasKey = true;
+            target.GetComponent<MH_Player>().hasKey = true;
             conUI.SetActive(true);
             convName.GetComponent<Text>().text = namee;
             StartCoroutine(Dialog());
         }
         else
         {
-            target.GetComponent<Player>().canInteract = true;
+            target.GetComponent<MH_Player>().canInteract = true;
         }
     }
 }
