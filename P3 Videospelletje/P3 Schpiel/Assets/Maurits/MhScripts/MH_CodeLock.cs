@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MH_CodeLock : MonoBehaviour {
+public class MH_CodeLock : MH_Item {
+    public GameObject cursor;
     public GameObject code;
     public GameObject enteredCode;
     public GameObject codeUI;
     public int solution;
     public string convSol;
-    private bool canInteract = true;
+    private bool canType = true;
+    private bool locked = true;
 	// Use this for initialization
 	void Start () {
         solution = Random.Range(1000, 99999);
@@ -21,13 +23,19 @@ public class MH_CodeLock : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void Interact()
+    public override void Interact(GameObject target)
     {
-        codeUI.SetActive(true);
+        if(locked)
+        {
+            interactor = target;
+            cursor.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            codeUI.SetActive(true);
+        }
     }
     public void CheckCode()
     {
-        if (canInteract)
+        if (canType)
         {
             if (convSol == enteredCode.GetComponent<Text>().text)
             {
@@ -36,7 +44,7 @@ public class MH_CodeLock : MonoBehaviour {
             else
             {
                 enteredCode.GetComponent<Text>().text = "WRONG";
-                canInteract = false;
+                canType = false;
                 StartCoroutine(Wait());
             }
         }
@@ -44,24 +52,27 @@ public class MH_CodeLock : MonoBehaviour {
     public void Open()
     {
         enteredCode.GetComponent<Text>().text = "unlocked";
-        canInteract = false;
+        canType = false;
         StartCoroutine(Unlock());
     }
     public void CloseUI()
     {
         codeUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        cursor.SetActive(true);
+        interactor.GetComponent<MH_Player>().canInteract = true;
         RemoveNum();
     }
     public void EnterNum(string number)
     {
-        if(enteredCode.GetComponent<Text>().text.Length < 7)
+        if(enteredCode.GetComponent<Text>().text.Length < 7 && canType)
         {
             enteredCode.GetComponent<Text>().text += number;
         }
     }
     public void RemoveNum()
     {
-        if (canInteract)
+        if (canType)
         {
             enteredCode.GetComponent<Text>().text = null;
         }
@@ -69,14 +80,17 @@ public class MH_CodeLock : MonoBehaviour {
     public IEnumerator Wait()
     {
         yield return new WaitForSeconds(2);
-        canInteract = true;
+        canType = true;
         RemoveNum();
     }
     public IEnumerator Unlock()
     {
         yield return new WaitForSeconds(1);
         RemoveNum();
+        Cursor.lockState = CursorLockMode.Locked;
+        cursor.SetActive(true);
         codeUI.SetActive(false);
-        print("Hi");
+        locked = false;
+        interactor.GetComponent<MH_Player>().canInteract = true;
     }
 }
