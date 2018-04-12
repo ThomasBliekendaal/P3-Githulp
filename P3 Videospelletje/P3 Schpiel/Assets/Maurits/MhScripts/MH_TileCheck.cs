@@ -42,6 +42,6 @@ public class MH_TileCheck : MonoBehaviour {
                 return;
             }
         }
-        OpenGate();
+        OpenGate(); 
     }
 }
