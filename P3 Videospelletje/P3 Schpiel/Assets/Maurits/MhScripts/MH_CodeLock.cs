@@ -91,6 +91,7 @@ public class MH_CodeLock : MH_Item {
         cursor.SetActive(true);
         codeUI.SetActive(false);
         locked = false;
+        gameObject.GetComponentInChildren<Animation>().Play("MH_PuzzleDoorOpen");
         interactor.GetComponent<MH_Player>().canInteract = true;
     }
 }

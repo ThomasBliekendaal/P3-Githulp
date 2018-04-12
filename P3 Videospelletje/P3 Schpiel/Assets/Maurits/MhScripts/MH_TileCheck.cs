@@ -5,6 +5,8 @@ using UnityEngine;
 public class MH_TileCheck : MonoBehaviour {
     public List<GameObject> tiles = new List<GameObject>();
     public Vector3 resetPos;
+    public GameObject door;
+    public bool opened;
 	// Use this for initialization
 	void Start () {
 
@@ -17,6 +19,10 @@ public class MH_TileCheck : MonoBehaviour {
     public void ResetTiles()
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = resetPos;
+        if (opened)
+        {
+            door.GetComponent<Animation>().Play("MH_CloseDoorTile");
+        }
         for(int i = 0; i < tiles.Count; i++)
         {
             tiles[i].GetComponent<MH_PuzzleTile>().pressed = false;
@@ -24,7 +30,8 @@ public class MH_TileCheck : MonoBehaviour {
     }
     public void OpenGate()
     {
-
+        door.GetComponent<Animation>().Play("MH_OpenDoorTile");
+        opened = true;
     }
     public void CheckTiles()
     {
@@ -34,7 +41,7 @@ public class MH_TileCheck : MonoBehaviour {
             {
                 return;
             }
-            OpenGate();
         }
+        OpenGate();
     }
 }

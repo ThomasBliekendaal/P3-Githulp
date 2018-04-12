@@ -26,7 +26,7 @@ public class MH_Door : MH_Item {
                     target.GetComponent<MH_Player>().hasKey = false;
                     gameObject.GetComponent<Animation>().Play("MH_KeyDoorOpen");
                     opened = true;
-
+                    target.GetComponent<MH_Player>().canInteract = true;
                 }
             }
             else

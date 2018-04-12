@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MH_GridChecker : MonoBehaviour {
     public List<GameObject> grid = new List<GameObject>();
-    public bool canOpen;
+    private bool canOpen;
+    private bool opened;
+    public GameObject door;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,25 +18,29 @@ public class MH_GridChecker : MonoBehaviour {
 	}
     public void CheckGrid()
     {
-        canOpen = true;
-        for(int i = 0; i < grid.Count; i++)
+        if(opened == false)
         {
-            if(grid[i].GetComponent<MH_GridPuzzle>().enabledd == false)
+            canOpen = true;
+            for (int i = 0; i < grid.Count; i++)
             {
-                canOpen = false;
+                if (grid[i].GetComponent<MH_GridPuzzle>().enabledd == false)
+                {
+                    canOpen = false;
+                }
             }
-        }
-        if (canOpen)
-        {
-            for(int i = 0; i < grid.Count; i++)
+            if (canOpen)
             {
-                grid[i].GetComponentInChildren<ParticleSystem>().Play();
+                for (int i = 0; i < grid.Count; i++)
+                {
+                    grid[i].GetComponentInChildren<ParticleSystem>().Play();
+                }
+                Open();
             }
-            Open();
         }
     }
     public void Open()
     {
-        print("Hi");
+        opened = true;
+        door.GetComponent<Animation>().Play("MH_OpenGridDoor");
     }
 }
