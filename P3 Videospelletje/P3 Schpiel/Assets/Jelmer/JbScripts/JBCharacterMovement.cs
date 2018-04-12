@@ -16,6 +16,7 @@ public class JBCharacterMovement : MonoBehaviour {
     public Vector3 normalHight;
     public Vector3 crouchHight;
     public GameObject[] currentItem;
+    public Transform cam;
 
     public RaycastHit interact;
     
@@ -47,13 +48,13 @@ public class JBCharacterMovement : MonoBehaviour {
                 currentSpeed = walkSpeed;
             }
         }
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * currentSpeed * Time.deltaTime;
+        transform.Translate(move,head);
 
-        transform.Translate(Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime, 0, Input.GetAxis("Vertical") * currentSpeed * Time.deltaTime);
+        cam.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
+        head.Rotate(0, Input.GetAxis("Mouse X"), 0);
 
-        head.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
-        transform.Rotate(0, Input.GetAxis("Mouse X"), 0);
-
-        if (Physics.Raycast(head.position, head.transform.forward* 5, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
+        if (Physics.Raycast(cam.position, cam.transform.forward* 5, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
         {
             interact.transform.gameObject.GetComponent<JBInteractable>().Interacted();
         }
