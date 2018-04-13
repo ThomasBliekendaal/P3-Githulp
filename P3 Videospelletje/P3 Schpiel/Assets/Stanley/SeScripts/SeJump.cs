@@ -28,7 +28,7 @@ public class SeJump : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
-        if (gameObject)
+        if (c.gameObject.tag == "Floor")
         {
             mayJump = 1;
         }
