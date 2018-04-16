@@ -7,8 +7,10 @@ public class MH_HallStand : MonoBehaviour {
     public bool canSpawnNewText = true;
     private bool firstTime = true;
     public bool enabledd = true;
+    public bool openDoor;
     public string[] dialog;
     public string nameOf;
+    public GameObject doorDoor;
     public GameObject dialogText;
     public GameObject dialogMenu;
     public GameObject dialogName;
@@ -36,10 +38,14 @@ public class MH_HallStand : MonoBehaviour {
                 if (current >= dialog.Length)
                 {
                     dialogMenu.SetActive(false);
-                    GameObject.FindWithTag("Player").GetComponent<MH_Player>().moveSpeed = 50;
+                    GameObject.FindWithTag("Player").GetComponent<MH_Player>().canMove = true;
                     enabledd = false;
                     current = 0;
                     firstTime = true;
+                    if (openDoor)
+                    {
+                        doorDoor.GetComponent<Animation>().Play("MH_LastPuzzleDoorOpen");
+                    }
                 }
                 if (enabledd)
                 {
@@ -53,7 +59,7 @@ public class MH_HallStand : MonoBehaviour {
     {
         if (canSpawnNewText && enabledd && firstTime)
         {
-            GameObject.FindWithTag("Player").GetComponent<MH_Player>().moveSpeed = 0;
+            GameObject.FindWithTag("Player").GetComponent<MH_Player>().canMove = false;
             firstTime = false;
             dialogMenu.SetActive(true);
             dialogName.GetComponent<Text>().text = nameOf;
