@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MH_UIManager : MonoBehaviour {
     public GameObject energyBar;
+    public GameObject healthBar;
+    public GameObject armorBar;
 	// Use this for initialization
 	void Start () {
 		
@@ -14,15 +16,20 @@ public class MH_UIManager : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void UpdateArmor(int currentArmor)
+    {
+        armorBar.GetComponent<Image>().fillAmount = BarCalculator(currentArmor, 100);
+    }
     public void UpdateEnergy(int currentEnergy, int maxEnergy)
     {
         energyBar.GetComponent<Image>().fillAmount = BarCalculator(currentEnergy, maxEnergy);
     }
+    public void UpdateHealth(int currentHealth, int maxHealth)
+    {
+        healthBar.GetComponent<Image>().fillAmount = BarCalculator(currentHealth, maxHealth);
+    }
     public float BarCalculator(int current, int max)
     {
-        print(current);
-        print(max);
-        print(1 / max * current);
-        return (1 / max) * current;
+        return (float) current / max;
     }
 }
