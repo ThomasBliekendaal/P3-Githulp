@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MH_HallStand : MonoBehaviour {
-    public bool canSpawnNewText;
+    public bool canSpawnNewText = true;
     private bool firstTime = true;
-    public bool enabledd;
+    public bool enabledd = true;
     public string[] dialog;
     public string nameOf;
     public GameObject dialogText;
     public GameObject dialogMenu;
     public GameObject dialogName;
     public int current;
-    public float delay;
+    public float delay = 0.1f;
 	// Use this for initialization
 	void Start () {
 		
