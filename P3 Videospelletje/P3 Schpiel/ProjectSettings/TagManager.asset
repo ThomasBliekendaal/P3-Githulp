@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Enemy
   - Interactable
+  - Terrain
   layers:
   - Default
   - TransparentFX
