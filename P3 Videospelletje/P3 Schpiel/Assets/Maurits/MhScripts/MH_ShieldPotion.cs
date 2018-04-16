@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MH_ShieldPotion : MH_Item
+public class MH_ShieldPotion : MH_Potion
 {
     public int addAmt;
     public GameObject uiManager;
