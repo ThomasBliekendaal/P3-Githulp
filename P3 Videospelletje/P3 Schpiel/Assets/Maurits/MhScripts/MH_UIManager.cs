@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MH_UIManager : MonoBehaviour {
+    public GameObject blackBar;
     public GameObject energyBar;
     public GameObject healthBar;
     public GameObject armorBar;
 	// Use this for initialization
 	void Start () {
-		
+      //  StartCoroutine(Timer());
 	}
 	
 	// Update is called once per frame
@@ -32,4 +33,10 @@ public class MH_UIManager : MonoBehaviour {
     {
         return (float) current / max;
     }
+    /*public IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(5);
+        blackBar.SetActive(false);
+    }
+    */
 }

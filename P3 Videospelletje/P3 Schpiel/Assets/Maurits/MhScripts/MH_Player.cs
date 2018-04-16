@@ -13,12 +13,14 @@ public class MH_Player : MonoBehaviour
     public float startSpeed;
     public float sprintSpeed;
     public float rotSpeed;
+    public float enRegenDelay;
     public int health;
     public int maxHealth;
     public int energy;
     public int maxEnergy;
     public int armor;
     public bool canMove = true;
+    public bool canSprint;
     public bool canInteract = true;
     public bool hasKey;
     public bool removeEnergy = true;
@@ -52,19 +54,29 @@ public class MH_Player : MonoBehaviour
     }
     public void Movement()
     {
-        movePos.x = Input.GetAxis("Horizontal");
-        movePos.z = Input.GetAxis("Vertical");
-        transform.Translate(movePos * moveSpeed * Time.deltaTime);
+        if (canMove)
+        {
+            movePos.x = Input.GetAxis("Horizontal");
+            movePos.z = Input.GetAxis("Vertical");
+            transform.Translate(movePos * moveSpeed * Time.deltaTime);
+        }
     }
     public void Sprinting()
     {
+        if(canSprint == false)
+        {
+            if(energy >= 25)
+            {
+                canSprint = true;
+            }
+        }
         if (canRegenEn && sprints == false && energy < maxEnergy)
         {
             StartCoroutine(RegainEnergy());
         }
         if (Input.GetButton("Sprint"))
         {
-            if (energy >= 1 && canMove)
+            if (energy >= 1 && canMove && canSprint)
             {
                 if (removeEnergy)
                 {
@@ -75,6 +87,7 @@ public class MH_Player : MonoBehaviour
             }
             else
             {
+                canSprint = false;
                 if (canMove)
                 {
                     sprints = false;
@@ -118,7 +131,7 @@ public class MH_Player : MonoBehaviour
     public IEnumerator RemoveEngergy()
     {
         removeEnergy = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0);
         energy -= 1;
         UIManager.GetComponent<MH_UIManager>().UpdateEnergy(energy, maxEnergy);
         removeEnergy = true;
@@ -126,7 +139,7 @@ public class MH_Player : MonoBehaviour
     public IEnumerator RegainEnergy()
     {
         canRegenEn = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(enRegenDelay);
         energy += 1;
         UIManager.GetComponent<MH_UIManager>().UpdateEnergy(energy, maxEnergy);
         canRegenEn = true;
