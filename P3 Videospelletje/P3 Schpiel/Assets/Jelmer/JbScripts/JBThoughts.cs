@@ -15,7 +15,7 @@ public class JBThoughts : MonoBehaviour {
     {
         if (active && Input.GetButtonDown("Jump") && !nextThing)
         {
-            panel.SetActive(false);
+            Disable();
         }
     }
 
@@ -31,6 +31,13 @@ public class JBThoughts : MonoBehaviour {
 
     public void StartIt(string inputText)
     {
+        active = true;
         StartCoroutine(StartInput(inputText));
+    }
+
+    public void Disable()
+    {
+        panel.SetActive(false);
+        active = false;
     }
 }
