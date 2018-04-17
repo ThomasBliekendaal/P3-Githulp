@@ -8,9 +8,10 @@ public class MH_UIManager : MonoBehaviour {
     public GameObject energyBar;
     public GameObject healthBar;
     public GameObject armorBar;
+    public GameObject player;
 	// Use this for initialization
 	void Start () {
-      //  StartCoroutine(Timer());
+        StartCoroutine(Timer());
 	}
 	
 	// Update is called once per frame
@@ -33,10 +34,14 @@ public class MH_UIManager : MonoBehaviour {
     {
         return (float) current / max;
     }
-    /*public IEnumerator Timer()
+    public IEnumerator Timer()
     {
-        yield return new WaitForSeconds(5);
+        player.GetComponent<MH_Player>().canMove = false;
+        player.GetComponent<MH_Player>().canInteract = false;
+        blackBar.SetActive(true);
+        yield return new WaitForSeconds(11);
         blackBar.SetActive(false);
+        player.GetComponent<MH_Player>().canMove = true;
+        player.GetComponent<MH_Player>().canInteract = true;
     }
-    */
 }

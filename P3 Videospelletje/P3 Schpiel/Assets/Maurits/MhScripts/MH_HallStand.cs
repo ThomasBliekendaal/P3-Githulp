@@ -14,6 +14,7 @@ public class MH_HallStand : MonoBehaviour {
     public GameObject dialogText;
     public GameObject dialogMenu;
     public GameObject dialogName;
+    public GameObject interactor;
     public int current;
     public float delay = 0.1f;
 	// Use this for initialization
@@ -38,7 +39,8 @@ public class MH_HallStand : MonoBehaviour {
                 if (current >= dialog.Length)
                 {
                     dialogMenu.SetActive(false);
-                    GameObject.FindWithTag("Player").GetComponent<MH_Player>().canMove = true;
+                    interactor.GetComponent<MH_Player>().canMove = true;
+                    interactor.GetComponent<MH_Player>().canInteract = true;
                     enabledd = false;
                     current = 0;
                     firstTime = true;
@@ -59,7 +61,9 @@ public class MH_HallStand : MonoBehaviour {
     {
         if (canSpawnNewText && enabledd && firstTime)
         {
-            GameObject.FindWithTag("Player").GetComponent<MH_Player>().canMove = false;
+            interactor = hit.gameObject;
+            interactor.GetComponent<MH_Player>().canInteract = false;
+            interactor.GetComponent<MH_Player>().canMove = false;
             firstTime = false;
             dialogMenu.SetActive(true);
             dialogName.GetComponent<Text>().text = nameOf;
