@@ -28,6 +28,10 @@ public class MH_Door : MH_Item {
                     opened = true;
                     target.GetComponent<MH_Player>().canInteract = true;
                 }
+                else
+                {
+                    target.GetComponent<MH_Player>().canInteract = true;
+                }
             }
             else
             {

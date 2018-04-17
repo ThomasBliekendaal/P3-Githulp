@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Interactable
+>>>>>>> b96294ec25d905310bc9d4b871b5a1749e646fc0
   layers:
   - Default
   - TransparentFX

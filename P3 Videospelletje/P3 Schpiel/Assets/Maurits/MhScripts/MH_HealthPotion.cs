@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MH_HealthPotion : MH_Potion
 {
-    public int healthAdd;
+    public GameObject uiManager;
+    public int addAmt;
     // Use this for initialization
     void Start()
     {
@@ -16,8 +17,12 @@ public class MH_HealthPotion : MH_Potion
     {
 
     }
-    public override void Effect()
+    public override void Interact(GameObject target)
     {
-        base.Effect();
+        target.GetComponent<MH_Player>().maxHealth += addAmt;
+        target.GetComponent<MH_Player>().health = target.GetComponent<MH_Player>().maxHealth;
+        uiManager.GetComponent<MH_UIManager>().UpdateHealth(target.GetComponent<MH_Player>().health, target.GetComponent<MH_Player>().maxHealth);
+        target.GetComponent<MH_Player>().canInteract = true;
+        Destroy(gameObject);
     }
 }
