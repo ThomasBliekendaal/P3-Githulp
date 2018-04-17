@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JBDoor : JBInteractable {
     public float speed;
     public bool open;
     public float current;
+    public bool locked;
+    
+
 
     public void Start()
     {
@@ -26,7 +30,7 @@ public class JBDoor : JBInteractable {
 
     public override void Interacted()
     {
-        if (open)
+        if (open && !locked)
         {
             open = false;
         }
@@ -34,5 +38,10 @@ public class JBDoor : JBInteractable {
         {
             open = true;
         }
+    }
+
+    public void Unlock()
+    {
+        locked = false;
     }
 }

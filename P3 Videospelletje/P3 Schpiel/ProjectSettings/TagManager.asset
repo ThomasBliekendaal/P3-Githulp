@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Floor
-  - Enemy
-  - Interactable
-<<<<<<< HEAD
-  - Terrain
-=======
-  - Light
->>>>>>> f82dbc81b3f343a58d3fe6c3dfee3f0070a183bd
+  tags: []
   layers:
   - Default
   - TransparentFX
