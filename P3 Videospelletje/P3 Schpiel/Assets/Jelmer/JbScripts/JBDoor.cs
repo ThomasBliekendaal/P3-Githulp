@@ -8,12 +8,13 @@ public class JBDoor : JBInteractable {
     public bool open;
     public float current;
     public bool locked;
-    
+    public JBThoughts thought;
 
 
     public void Start()
     {
         current = transform.rotation.y;
+        thought = GameObject.FindWithTag("Respawn").GetComponent<JBThoughts>();
     }
 
     public void Update()
@@ -30,13 +31,20 @@ public class JBDoor : JBInteractable {
 
     public override void Interacted()
     {
-        if (open && !locked)
+        if(!locked)
         {
-            open = false;
+            if (open)
+            {
+                open = false;
+            }
+            else
+            {
+                open = true;
+            }
         }
         else
         {
-            open = true;
+            thought.StartIt("Its Locked");
         }
     }
 
