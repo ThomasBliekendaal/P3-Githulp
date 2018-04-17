@@ -17,7 +17,6 @@ public class TbWeaponScript : MonoBehaviour {
     public Transform pCamera;
     public float rayLength;
     public RaycastHit hit;
-    public GameObject cube;
 
 
 	
@@ -37,7 +36,6 @@ public class TbWeaponScript : MonoBehaviour {
     void ShootBullet()
     {
         GameObject p = Instantiate(projectile, barrel.position, barrel.rotation);
-        //p.GetComponent<Rigidbody>().velocity = transform.forward * projectileVel;
         //Debug.DrawRay(pCamera.position, transform.forward, Color.red, rayLength);
         if(Physics.Raycast(pCamera.position,pCamera.forward,out hit))
         {
