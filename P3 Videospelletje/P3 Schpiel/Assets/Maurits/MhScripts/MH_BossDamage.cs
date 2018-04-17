@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MH_BossDamage : MonoBehaviour {
+public class MH_BossDamage : MH_BossAbility {
     public bool canDmg = true;
     public GameObject target;
+    public float slowAmt;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,19 +28,18 @@ public class MH_BossDamage : MonoBehaviour {
     public void OnTriggerEnter(Collider hit)
     {
         target = hit.gameObject;
+        target.GetComponent<MH_Player>().moveSpeed -= slowAmt;
     }
-    public IEnumerator Dmg(int dmgAmt, GameObject target)
+    public void OnTriggerExit(Collider hit)
+    {
+        target = null;
+        hit.gameObject.GetComponent<MH_Player>().moveSpeed += slowAmt;
+    }
+    public IEnumerator Dmg(int dmgAmt, GameObject player)
     {
         canDmg = false;
-        if(target.GetComponent<MH_Player>().armor < dmgAmt)
-        {
-            target.GetComponent<MH_Player>().health -= dmgAmt - target.GetComponent<MH_Player>().armor;
-            target.GetComponent<MH_Player>().armor = 0;
-        }
-        else
-        {
-            target.GetComponent<MH_Player>().armor -= dmgAmt;
-        }
+        DealDmg(dmgAmt, player);
         yield return new WaitForSeconds(1);
+        canDmg = true;
     }
 }

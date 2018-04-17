@@ -43,6 +43,11 @@ public class MH_CastleBoss : MonoBehaviour {
             g.transform.localScale += moltenStuffScaler;
         }
         yield return new WaitForSeconds(2);
+        for (int i = 0; i < Random.Range(30, 51); i++)
+        {
+            yield return new WaitForSeconds(0.03f);
+            g.transform.localScale -= moltenStuffScaler;
+        }
         Destroy(g);
         canAttack = true;
     }
