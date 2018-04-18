@@ -7,12 +7,16 @@ using UnityEngine.Audio;
 public class MH_UIManager : MonoBehaviour {
     public int ogHealth;
     public bool nightmare;
+    private bool canPause;
+    public bool paused;
     public GameObject blackBar;
     public GameObject energyBar;
     public GameObject healthBar;
     public GameObject armorBar;
-    public GameObject graphicOpt;
     public GameObject player;
+    public GameObject pauseUI;
+    public GameObject pauseScreen;
+    public GameObject[] allPauseUI;
     public GameObject[] potions;
 	// Use this for initialization
 	void Start () {
@@ -21,7 +25,13 @@ public class MH_UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (canPause)
+            {
+                PauseGame();
+            }
+        }
 	}
     public void UpdateArmor(int currentArmor)
     {
@@ -44,10 +54,11 @@ public class MH_UIManager : MonoBehaviour {
         player.GetComponent<MH_Player>().canMove = false;
         player.GetComponent<MH_Player>().canInteract = false;
         blackBar.SetActive(true);
-        yield return new WaitForSeconds(11);
+        yield return new WaitForSeconds(9.5f);
         blackBar.SetActive(false);
         player.GetComponent<MH_Player>().canMove = true;
         player.GetComponent<MH_Player>().canInteract = true;
+        canPause = true;
     }
     public void ChangeQuality(int level)
     {
@@ -64,6 +75,7 @@ public class MH_UIManager : MonoBehaviour {
             ogHealth = player.GetComponent<MH_Player>().maxHealth;
             player.GetComponent<MH_Player>().maxHealth = 1;
             player.GetComponent<MH_Player>().health = 1;
+            UpdateHealth(player.GetComponent<MH_Player>().health, player.GetComponent<MH_Player>().maxHealth);
             nightmare = true;
         }
         else
@@ -74,6 +86,42 @@ public class MH_UIManager : MonoBehaviour {
                 potions[a].SetActive(true);
             }
             nightmare = false;
+            UpdateHealth(player.GetComponent<MH_Player>().health, player.GetComponent<MH_Player>().maxHealth);
+        }
+    }
+    public void Options(GameObject optionsUI)
+    {
+        optionsUI.SetActive(true);
+        pauseScreen.SetActive(false);
+    }
+    public void ToPause(GameObject optionsUI)
+    {
+        for(int i = 0; i < allPauseUI.Length; i++)
+        {
+            allPauseUI[i].SetActive(false);
+        }
+        pauseScreen.SetActive(true);
+    }
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+    public void PauseGame()
+    {
+        if (paused)
+        {
+            pauseUI.SetActive(false);
+            paused = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseUI.SetActive(true);
+            paused = true;
+            Cursor.lockState = CursorLockMode.None;
+            ToPause(pauseScreen);
+            Time.timeScale = 0;
         }
     }
 }
