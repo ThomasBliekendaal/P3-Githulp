@@ -14,7 +14,6 @@ public class SeFlickering : MonoBehaviour
 
     public IEnumerator Boio()
     {
-        Debug.Log("JensIsEenFaggot");
         for(int i = 0; i < lights.Length; i++)
         {
             lights[i].SetActive(false);
