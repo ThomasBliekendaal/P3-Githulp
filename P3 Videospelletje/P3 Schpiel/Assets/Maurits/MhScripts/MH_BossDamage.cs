@@ -15,7 +15,7 @@ public class MH_BossDamage : MH_BossAbility {
 	void Update () {
 		
 	}
-    public void OnTriggerStay(Collision hit)
+    public void OnTriggerStay(Collider hit)
     {
         if(hit.gameObject.tag == "Player")
         {
