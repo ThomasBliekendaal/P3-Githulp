@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MH_Player : MonoBehaviour
 {
     public GameObject UIManager;
     public GameObject cam;
+    public GameObject slider;
     public Vector3 movePos;
     public Vector3 rotAmt;
     public float moveSpeed;
@@ -150,6 +152,10 @@ public class MH_Player : MonoBehaviour
         health += 1;
         UIManager.GetComponent<MH_UIManager>().UpdateHealth(health, maxHealth);
         canRegenHp = true;
+    }
+    public void ChangeSensitivity()
+    {
+        rotSpeed = slider.GetComponent<Slider>().value;
     }
 }
 

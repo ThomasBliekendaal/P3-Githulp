@@ -10,6 +10,7 @@ public class MH_CastleBoss : MonoBehaviour {
     public Vector3 moltenStuffScaler;
     public bool activated;
     public bool canAttack;
+    public int health;
     private List<IEnumerator> attacks = new List<IEnumerator>();
 	// Use this for initialization
 	void Start () {
