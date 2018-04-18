@@ -19,11 +19,12 @@ public class MH_Conversation : MonoBehaviour
     public GameObject plaayer;
     // Use this for initialization
 
-    public void Interact() // What happens when you interact
+    public void Interact(GameObject interactor) // What happens when you interact
     {
         StartCoroutine(Typewriter());
         if (isOpen == false)// checks if it is the first interact after talking.
         {
+            plaayer = GameObject.FindGameObjectWithTag("Player");
             dialogName.GetComponent<Text>().text = npcName;
             convUI.SetActive(true);
             isOpen = true;
@@ -60,7 +61,7 @@ public class MH_Conversation : MonoBehaviour
             {
                 responseVal = (responseVal * 2) + 1;
             }
-            Interact(); // Interats again
+            Interact(gameObject); // Interats again
         }
         else // if it is from the last answer row
         {
