@@ -12,6 +12,10 @@ public class MH_BossAbility : MonoBehaviour {
         {
             target.GetComponent<MH_Player>().health -= (dmg - target.GetComponent<MH_Player>().armor);
             target.GetComponent<MH_Player>().armor = 0;
+            if(target.GetComponent<MH_Player>().health <= 0)
+            {
+                //target.GetComponent<MH_Player>().Death();
+            }
         }
         else
         {

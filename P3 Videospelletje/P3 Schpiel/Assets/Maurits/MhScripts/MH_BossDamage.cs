@@ -17,23 +17,29 @@ public class MH_BossDamage : MH_BossAbility {
 	}
     public void OnTriggerStay(Collider hit)
     {
-        if(hit.gameObject.tag == "Player")
+        if(hit.gameObject == hit)
         {
             if (canDmg)
             {
-                StartCoroutine(Dmg(10, hit.gameObject));
+                StartCoroutine(Dmg(Random.Range(5,11), hit.gameObject));
             }
         }
     }
     public void OnTriggerEnter(Collider hit)
     {
-        target = hit.gameObject;
-        target.GetComponent<MH_Player>().moveSpeed -= slowAmt;
+        if(hit.gameObject == target)
+        {
+            target = hit.gameObject;
+            target.GetComponent<MH_Player>().moveSpeed -= slowAmt;
+        }
     }
     public void OnTriggerExit(Collider hit)
     {
-        target = null;
-        hit.gameObject.GetComponent<MH_Player>().moveSpeed += slowAmt;
+        if(hit.gameObject == target)
+        {
+            target = null;
+            hit.gameObject.GetComponent<MH_Player>().moveSpeed += slowAmt;
+        }
     }
     public IEnumerator Dmg(int dmgAmt, GameObject player)
     {

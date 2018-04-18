@@ -44,4 +44,8 @@ public class MH_UIManager : MonoBehaviour {
         player.GetComponent<MH_Player>().canMove = true;
         player.GetComponent<MH_Player>().canInteract = true;
     }
+    public void ChangeQuality(int level)
+    {
+        QualitySettings.SetQualityLevel(level, true);
+    }
 }

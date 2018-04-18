@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MH_CastleBoss : MonoBehaviour {
     public GameObject moltenStuff;
+    public GameObject cannonBall;
     public GameObject target;
     public Vector3 posit;
     public Vector3 moltenStuffScaler;
@@ -13,7 +14,7 @@ public class MH_CastleBoss : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         attacks.Add(MoltenStuff());
-        StartCoroutine(MoltenStuff());
+        attacks.Add(CannonBalls());
 	}
 	
 	// Update is called once per frame
@@ -21,6 +22,10 @@ public class MH_CastleBoss : MonoBehaviour {
         if (activated)
         {
             transform.LookAt(target.transform);
+            if (canAttack)
+            {
+                StartCoroutine(attacks[Random.Range(0, attacks.Count)]);
+            }
         }
 		
 	}
@@ -49,6 +54,19 @@ public class MH_CastleBoss : MonoBehaviour {
             g.transform.localScale -= moltenStuffScaler;
         }
         Destroy(g);
+        canAttack = true;
+    }
+    public IEnumerator CannonBalls()
+    {
+        canAttack = false;
+        posit = gameObject.transform.position;
+        posit.z += 3;
+        for(int i = 0; i < Random.Range(3,6); i++)
+        {
+            GameObject g = Instantiate(cannonBall, posit, Quaternion.identity);
+            g.GetComponent<MH_CannonBall>().target = target;
+            yield return new WaitForSeconds(1);
+        }
         canAttack = true;
     }
 }
