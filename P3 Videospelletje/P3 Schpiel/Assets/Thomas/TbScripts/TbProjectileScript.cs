@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TbProjectileScript : TbWeaponScript {
-    public GameObject deathParticle;
+    public GameObject weapon;
 
 	// Use this for initialization
 	void Start () {
-	    
+        weapon = GameObject.FindGameObjectWithTag("Weapon");
 	}
 	
 	// Update is called once per frame
 	void Update () {
         gameObject.GetComponent<Rigidbody>().velocity = transform.forward * projectileVel;
+        hit = weapon.GetComponent<TbWandWep>().hit;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -22,9 +23,8 @@ public class TbProjectileScript : TbWeaponScript {
         }
         if (collision.gameObject)
         {
-            GameObject g = Instantiate(deathParticle,transform.position,transform.rotation);
+            SpawnParticle();
             Destroy(gameObject);
-            Destroy(g, 1);
         }
     }
 }

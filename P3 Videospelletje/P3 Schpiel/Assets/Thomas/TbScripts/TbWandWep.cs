@@ -14,7 +14,8 @@ public class TbWandWep : TbWeaponScript {
 	void Update () {
         Fire();
         AltFire();
-	}
+        currentMana = manaSource.GetComponent<TbMovementScript>().mana;
+    }
     public void AltFire()
     {
         if (Input.GetButtonDown("Fire2"))

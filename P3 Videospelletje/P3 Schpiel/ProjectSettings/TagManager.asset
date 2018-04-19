@@ -8,8 +8,13 @@ TagManager:
   - Enemy
   - Floor
   - Pcamera
+<<<<<<< HEAD
   - Interactable
   - UIManager
+=======
+  - PlayerBullet
+  - Weapon
+>>>>>>> decabe97251becca30eb3f0f7f7642a6482cd7ec
   layers:
   - Default
   - TransparentFX

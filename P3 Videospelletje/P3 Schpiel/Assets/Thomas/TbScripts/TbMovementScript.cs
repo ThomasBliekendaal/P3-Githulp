@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour {
+public class TbMovementScript : MonoBehaviour {
     public GameObject pCamera;
     public float walkSpeed;
     public int jumps;
@@ -13,6 +13,12 @@ public class MovementScript : MonoBehaviour {
     public int totalJumps;
     public float sprintSpeed;
     public float walkSpeed2;
+    public float mana;
+    public float health;
+    public float manaTimer;
+    public bool canRegenMana;
+    public bool readyToRegen;
+    public bool regening;
 
 
 	// Use this for initialization
@@ -53,11 +59,59 @@ public class MovementScript : MonoBehaviour {
         camRotateVel.x = -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         pCamera.transform.Rotate(camRotateVel);
     }
+    void Update()
+    {
+        if (canRegenMana == true)
+        {
+            mana += Time.deltaTime * 30;
+            if (mana >= 100)
+            {
+                canRegenMana = false;
+                mana = 100;
+            }
+        }
+        if (mana <= 0)
+        {
+            mana = 0;
+        }
+        if (readyToRegen == true && regening == false)
+        {
+            StartCoroutine(ManaTimer());
+        }
+        if (!Input.GetButton("Fire1") && regening == false)
+        {
+            readyToRegen = true;
+        }
+        if (!readyToRegen)
+        {
+            StopCoroutine(ManaTimer());
+            regening = false;
+        }
+    }
+    public void Use(float manaUsage)
+    {
+        canRegenMana = false;
+        mana -= manaUsage;
+        readyToRegen = false;
+    }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Floor")
         {
             jumps = totalJumps;
+        }
+    }
+    public IEnumerator ManaTimer()
+    {
+        if (readyToRegen)
+        {
+            regening = true;
+            yield return new WaitForSeconds(manaTimer);
+            if (readyToRegen)
+            {
+                canRegenMana = true;
+                regening = false;
+            }
         }
     }
 }
