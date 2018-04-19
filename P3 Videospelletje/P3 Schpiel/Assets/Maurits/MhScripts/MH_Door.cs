@@ -36,6 +36,7 @@ public class MH_Door : MH_Item {
             else
             {
                 gameObject.GetComponent<Animation>().Play("MH_DoorOpen");
+                gameObject.GetComponent<AudioSource>().Play();
                 opened = true;
                 StartCoroutine(Timer(target, 4));
             }

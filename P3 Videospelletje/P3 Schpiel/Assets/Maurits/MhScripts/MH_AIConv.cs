@@ -14,13 +14,13 @@ public class MH_AIConv : MH_Conversation
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))// This is for speeding up the text if you hold your left mousebutton
+        if (Input.GetButton("FastForward")) // This is for speeding up the text if you hold your left mousebutton
         {
-            delay = 0; // makes text fast
+            delay = 0;
         }
         else
         {
-            delay = 0.1f; // makes text normal again
+            delay = 0.1f;
         }
     }
     public override void UseEffect()
@@ -32,52 +32,52 @@ public class MH_AIConv : MH_Conversation
         switch (val)
         {
             case 16:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 17:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 18:
-                print("Hi");
+                print("Pacifist");
                 break;
             case 19:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 20:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 21:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 22:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 23:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 24:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 25:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 26:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 27:
-                print("Hi");
+                print("Pacifist");
                 break;
             case 28:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 29:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 30:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
             case 31:
-                print("Hi");
+                endBossDoor.GetComponent<MH_BossDoor>().unlocked = true;
                 break;
         }
     }

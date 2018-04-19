@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MH_Conversation : MonoBehaviour
+public class MH_Conversation : MH_Item
 {// inherits the reactions from afterInteract
     public string[] npcResponse;
     public string[] playerAnswersYes;
     public string[] playerAnswersNo;
     public string npcName;
     public bool isOpen;
+    public bool canReset;
     public int responseVal = 1;
     public float delay;
     public GameObject convUI;
@@ -19,11 +20,12 @@ public class MH_Conversation : MonoBehaviour
     public GameObject plaayer;
     // Use this for initialization
 
-    public void Interact(GameObject interactor) // What happens when you interact
+    public override void Interact(GameObject interactor) // What happens when you interact
     {
-        StartCoroutine(Typewriter());
         if (isOpen == false)// checks if it is the first interact after talking.
         {
+            Cursor.lockState = CursorLockMode.None;
+            StartCoroutine(Typewriter());
             plaayer = GameObject.FindGameObjectWithTag("Player");
             dialogName.GetComponent<Text>().text = npcName;
             convUI.SetActive(true);
@@ -61,7 +63,7 @@ public class MH_Conversation : MonoBehaviour
             {
                 responseVal = (responseVal * 2) + 1;
             }
-            Interact(gameObject); // Interats again
+            Next(); // Interats again
         }
         else // if it is from the last answer row
         {
@@ -76,12 +78,20 @@ public class MH_Conversation : MonoBehaviour
             UseEffect();
             responseVal = 1; // resets the response for playback
             convUI.SetActive(false);// sets off the UI
-            isOpen = false; // makes the UI able to turn back on again
+            if (canReset)
+            {
+                isOpen = false; // makes the UI able to turn back on again
+            }
             plaayer.GetComponent<MH_Player>().canInteract = true; // player can interact again
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
     public virtual void UseEffect()
     {
 
+    }
+    public void Next()
+    {
+        StartCoroutine(Typewriter());
     }
 }
