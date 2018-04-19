@@ -5,7 +5,6 @@ using UnityEngine;
 public class MH_ShieldPotion : MH_Potion
 {
     public int addAmt;
-    public GameObject uiManager;
     // Use this for initialization
     void Start()
     {
@@ -27,7 +26,7 @@ public class MH_ShieldPotion : MH_Potion
         {
             target.GetComponent<MH_Player>().armor += Calculate(target.GetComponent<MH_Player>().armor);
         }
-        uiManager.GetComponent<MH_UIManager>().UpdateArmor(target.GetComponent<MH_Player>().armor);
+        GameObject.FindGameObjectWithTag("UIManager").GetComponent<MH_UIManager>().UpdateArmor(target.GetComponent<MH_Player>().armor);
         target.GetComponent<MH_Player>().canInteract = true;
         Destroy(gameObject);
     }

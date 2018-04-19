@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Floor
   - Pcamera
+  - Interactable
+  - UIManager
   layers:
   - Default
   - TransparentFX

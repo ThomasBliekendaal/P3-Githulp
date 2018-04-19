@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MH_BossAbility : MonoBehaviour {
-    public GameObject uiManager;
 	// Use this for initialization
 
     public void DealDmg(int dmg, GameObject target)
@@ -21,7 +20,7 @@ public class MH_BossAbility : MonoBehaviour {
         {
             target.GetComponent<MH_Player>().armor -= dmg;
         }
-        uiManager.GetComponent<MH_UIManager>().UpdateArmor(target.GetComponent<MH_Player>().armor);
-        uiManager.GetComponent<MH_UIManager>().UpdateHealth(target.GetComponent<MH_Player>().health, target.GetComponent<MH_Player>().maxHealth);
+        GameObject.FindGameObjectWithTag("UIManager").GetComponent<MH_UIManager>().UpdateArmor(target.GetComponent<MH_Player>().armor);
+        GameObject.FindGameObjectWithTag("UIManager").GetComponent<MH_UIManager>().UpdateHealth(target.GetComponent<MH_Player>().health, target.GetComponent<MH_Player>().maxHealth);
     }
 }

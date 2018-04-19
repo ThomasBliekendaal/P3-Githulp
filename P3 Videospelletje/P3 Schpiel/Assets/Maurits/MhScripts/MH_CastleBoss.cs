@@ -6,6 +6,7 @@ public class MH_CastleBoss : MonoBehaviour {
     public GameObject moltenStuff;
     public GameObject cannonBall;
     public GameObject target;
+    public GameObject bossDoor;
     public Vector3 posit;
     public Vector3 moltenStuffScaler;
     public bool activated;
@@ -34,6 +35,8 @@ public class MH_CastleBoss : MonoBehaviour {
     {
         if(activated == false)
         {
+            bossDoor.GetComponent<MH_BossDoor>().unlocked = false;
+            bossDoor.GetComponent<Animation>().Play("MH_BossWallClose");
             activated = true;
             target = hit.gameObject;
         }
@@ -54,8 +57,8 @@ public class MH_CastleBoss : MonoBehaviour {
             yield return new WaitForSeconds(0.03f);
             g.transform.localScale -= moltenStuffScaler;
         }
+        StartCoroutine(Cooldown());
         Destroy(g);
-        canAttack = true;
     }
     public IEnumerator CannonBalls()
     {
@@ -67,6 +70,16 @@ public class MH_CastleBoss : MonoBehaviour {
             GameObject g = Instantiate(cannonBall, posit, Quaternion.identity);
             g.GetComponent<MH_CannonBall>().target = target;
             yield return new WaitForSeconds(1);
+        }
+        StartCoroutine(Cooldown());
+    }
+    public IEnumerator Cooldown()
+    {
+        if(Random.Range(1, 7) == 3)
+        {
+            gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+            yield return new WaitForSeconds(3);
+            gameObject.GetComponentInChildren<ParticleSystem>().Play();
         }
         canAttack = true;
     }

@@ -27,7 +27,7 @@ public class MH_BossDamage : MH_BossAbility {
     }
     public void OnTriggerEnter(Collider hit)
     {
-        if(hit.gameObject == target)
+        if(hit.gameObject.tag == "Player")
         {
             target = hit.gameObject;
             target.GetComponent<MH_Player>().moveSpeed -= slowAmt;

@@ -59,7 +59,7 @@ public class MH_HallStand : MonoBehaviour {
 	}
     public void OnTriggerEnter(Collider hit)
     {
-        if (canSpawnNewText && enabledd && firstTime)
+        if (canSpawnNewText && enabledd && firstTime && hit.gameObject.tag == "Player")
         {
             interactor = hit.gameObject;
             interactor.GetComponent<MH_Player>().canInteract = false;
