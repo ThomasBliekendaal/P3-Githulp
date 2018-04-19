@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Floor
   - Pcamera
+  - PlayerBullet
+  - Weapon
   layers:
   - Default
   - TransparentFX

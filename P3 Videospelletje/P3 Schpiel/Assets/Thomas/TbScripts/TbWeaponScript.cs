@@ -5,6 +5,7 @@ using UnityEngine;
 public class TbWeaponScript : MonoBehaviour {
     public float damage;
     public float manaUsage;
+    public float altManaUsage;
     public Transform barrel;
     public float fireRate;
     public GameObject projectile;
@@ -17,18 +18,24 @@ public class TbWeaponScript : MonoBehaviour {
     public Transform pCamera;
     public float rayLength;
     public RaycastHit hit;
+    public GameObject deathParticle;
+    public GameObject manaSource;
+    public float currentMana;
 
 
-	
     public void Fire()
     {
         if (Input.GetButton("Fire1"))
         {
-            if (canFire)
+            if (currentMana >= 1)
             {
-                ShootBullet();
-                canFire = false;
-                StartCoroutine(Rof());
+                if (canFire)
+                {
+                    manaSource.GetComponent<TbMovementScript>().Use(manaUsage);
+                    ShootBullet();
+                    canFire = false;
+                    StartCoroutine(Rof());
+                }
             }
         }
     }
@@ -41,6 +48,11 @@ public class TbWeaponScript : MonoBehaviour {
         {
             p.transform.LookAt(hit.point);
         }
+    }
+    public void SpawnParticle()
+    {
+        GameObject g = Instantiate(deathParticle, hit.point, transform.rotation);
+        Destroy(g, 1);
     }
 
 

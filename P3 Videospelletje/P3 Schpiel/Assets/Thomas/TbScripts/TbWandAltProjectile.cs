@@ -5,7 +5,7 @@ using UnityEngine;
 public class WandAltProjectile : TbWandWep {
     public Transform bottomBarrel;
     public bool floorcheck = false;
-
+   
     // Use this for initialization
     void Start () {
         pCamera = GameObject.FindGameObjectWithTag("Pcamera").transform;
