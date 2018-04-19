@@ -7,6 +7,7 @@ public class MH_TileCheck : MonoBehaviour {
     public Vector3 resetPos;
     public GameObject door;
     public bool opened;
+    public bool disabled;
 	// Use this for initialization
 	void Start () {
 
@@ -18,14 +19,17 @@ public class MH_TileCheck : MonoBehaviour {
 	}
     public void ResetTiles()
     {
-        GameObject.FindGameObjectWithTag("Player").transform.position = resetPos;
-        if (opened)
+        if(disabled == false)
         {
-            door.GetComponent<Animation>().Play("MH_CloseDoorTile");
-        }
-        for(int i = 0; i < tiles.Count; i++)
-        {
-            tiles[i].GetComponent<MH_PuzzleTile>().pressed = false;
+            GameObject.FindGameObjectWithTag("Player").transform.position = resetPos;
+            if (opened)
+            {
+                door.GetComponent<Animation>().Play("MH_CloseDoorTile");
+            }
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                tiles[i].GetComponent<MH_PuzzleTile>().pressed = false;
+            }
         }
     }
     public void OpenGate()
@@ -35,13 +39,16 @@ public class MH_TileCheck : MonoBehaviour {
     }
     public void CheckTiles()
     {
-        for(int i = 0; i < tiles.Count; i++)
+        if(opened == false)
         {
-            if(tiles[i].GetComponent<MH_PuzzleTile>().pressed != true)
+            for (int i = 0; i < tiles.Count; i++)
             {
-                return;
+                if (tiles[i].GetComponent<MH_PuzzleTile>().pressed != true)
+                {
+                    return;
+                }
             }
+            OpenGate();
         }
-        OpenGate(); 
     }
 }

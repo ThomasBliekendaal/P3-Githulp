@@ -97,7 +97,7 @@ public class MH_Player : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButtonUp("Sprint"))
+        else
         {
             if (canMove)
             {

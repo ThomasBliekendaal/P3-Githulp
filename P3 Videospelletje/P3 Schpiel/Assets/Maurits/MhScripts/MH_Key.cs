@@ -39,7 +39,7 @@ public class MH_Key : MH_Item {
                         conUI.SetActive(false);
                         disabled = true;
                         interactor.GetComponent<MH_Player>().canInteract = true;
-                        interactor.GetComponent<MH_Player>().canMove = false;
+                        interactor.GetComponent<MH_Player>().canMove = true;
                     }
                     else
                     {

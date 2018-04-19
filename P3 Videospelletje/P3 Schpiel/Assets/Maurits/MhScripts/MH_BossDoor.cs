@@ -37,4 +37,15 @@ public class MH_BossDoor : MH_Item {
             }
         }
     }
+    public void UnOrLock()
+    {
+        if (unlocked)
+        {
+            unlocked = false;
+        }
+        else
+        {
+            unlocked = true;
+        }
+    }
 }

@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Light
-  - Enemy
-  - Floor
-  - Pcamera
-<<<<<<< HEAD
-  - Interactable
-  - UIManager
-=======
-  - PlayerBullet
-  - Weapon
->>>>>>> decabe97251becca30eb3f0f7f7642a6482cd7ec
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - PlayerBullet
+  - 
+  - 
   - 
   - 
   - 
