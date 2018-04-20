@@ -7,6 +7,7 @@ public class MH_CastleBoss : MonoBehaviour {
     public GameObject cannonBall;
     public GameObject target;
     public GameObject bossDoor;
+    public GameObject bossKey;
     public Vector3 posit;
     public Vector3 moltenStuffScaler;
     public bool activated;
@@ -33,13 +34,21 @@ public class MH_CastleBoss : MonoBehaviour {
 	}
     public void OnTriggerEnter(Collider hit)
     {
-        if(activated == false)
+        if(hit.gameObject.tag == ("Player") && activated == false)
         {
             bossDoor.GetComponent<MH_BossDoor>().unlocked = false;
             bossDoor.GetComponent<Animation>().Play("MH_BossWallClose");
             activated = true;
             target = hit.gameObject;
+            Destroy(gameObject.GetComponent<SphereCollider>());
         }
+    }
+    public void Death()
+    {
+        posit = gameObject.transform.position;
+        posit.y += 3;
+        Instantiate(bossKey, posit, Quaternion.identity);
+        Destroy(gameObject);
     }
     public IEnumerator MoltenStuff()
     {

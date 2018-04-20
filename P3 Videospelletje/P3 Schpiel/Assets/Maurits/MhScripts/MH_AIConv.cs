@@ -6,6 +6,8 @@ public class MH_AIConv : MH_Conversation
 {
     public GameObject endBossDoor;
     public GameObject tilePuzzle;
+    public GameObject bossKey;
+    public Vector3 spawnHeight;
     // Use this for initialization
     void Start()
     {
@@ -36,13 +38,12 @@ public class MH_AIConv : MH_Conversation
         {
             case 16:
                 endBossDoor.GetComponent<MH_BossDoor>().UnOrLock();
-                print("Effect");
                 break;
             case 17:
                 endBossDoor.GetComponent<MH_BossDoor>().UnOrLock();
                 break;
             case 18:
-                print("Pacifist");
+                Instantiate(bossKey, gameObject.transform.position + spawnHeight, Quaternion.identity);
                 break;
             case 19:
                 endBossDoor.GetComponent<MH_BossDoor>().UnOrLock();
@@ -69,7 +70,7 @@ public class MH_AIConv : MH_Conversation
                 endBossDoor.GetComponent<MH_BossDoor>().UnOrLock();
                 break;
             case 27:
-                print("Pacifist");
+                Instantiate(bossKey, gameObject.transform.position + spawnHeight, Quaternion.identity);
                 break;
             case 28:
                 endBossDoor.GetComponent<MH_BossDoor>().UnOrLock();
