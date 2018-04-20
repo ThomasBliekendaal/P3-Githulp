@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4344310845679418}
   - component: {fileID: 33922906432005860}
   - component: {fileID: 23694976684344060}
+  - component: {fileID: 64067252590900996}
   m_Layer: 0
   m_Name: DrGate
   m_TagString: Untagged
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792231369628940}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 9.496735, y: 0.26718944, z: -6.88093}
+  m_LocalPosition: {x: 10.216788, y: 0.26719058, z: 4.1905813}
   m_LocalScale: {x: 1.4705882, y: 1.474359, z: 1.4814814}
   m_Children:
   - {fileID: 4697245540934348}
@@ -142,6 +143,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792231369628940}
+  m_Mesh: {fileID: 4300000, guid: 57a217936d75c704b8a18b3013df7b25, type: 3}
+--- !u!64 &64067252590900996
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792231369628940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 57a217936d75c704b8a18b3013df7b25, type: 3}
 --- !u!108 &108738638881500828
 Light:
