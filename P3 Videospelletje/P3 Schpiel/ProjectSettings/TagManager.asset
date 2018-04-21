@@ -8,6 +8,7 @@ TagManager:
   - UIManager
   - Enemy
   - Gate
+  - StatSaver
   layers:
   - Default
   - TransparentFX

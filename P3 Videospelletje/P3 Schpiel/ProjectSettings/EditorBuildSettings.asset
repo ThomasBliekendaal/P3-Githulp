@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/General Purpose/Scenes/Don'tDestroyOnLoad.unity
+    guid: ceed952eaee8cde47b3445eaabc664d3
+  - enabled: 1
+    path: Assets/Maurits/MhScenes/MH_Game.unity
+    guid: 9f992707987b10a4a8a8cdbcb2b5f189
+  - enabled: 1
+    path: Assets/General Purpose/Scenes/MainMenu.unity
+    guid: e34c31ad4610beb48bd367e76f308679
