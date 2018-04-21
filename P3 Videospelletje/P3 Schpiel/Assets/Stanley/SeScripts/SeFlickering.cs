@@ -23,7 +23,6 @@ public class SeFlickering : MonoBehaviour
         {
             lights[i].SetActive(true);
         }
-        Debug.Log("StanleyIsEenFaggot");
         StartCoroutine(Wait());
     }
 
