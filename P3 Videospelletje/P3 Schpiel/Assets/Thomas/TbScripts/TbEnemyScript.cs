@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TbEnemyScript : MonoBehaviour {
     public float enemyHealth;
+    public float enemyDamage;
 
 	// Use this for initialization
 	void Start () {

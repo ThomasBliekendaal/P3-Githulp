@@ -18,10 +18,15 @@ public class TbWandWep : TbWeaponScript {
     }
     public void AltFire()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (currentMana >= 1)
         {
-            GameObject ap = Instantiate(altProjectile, barrel.position, altProjectile.transform.rotation);
-            Destroy(ap, 5f);
+            if (Input.GetButtonDown("Fire2"))
+            {
+                GameObject ap = Instantiate(altProjectile, barrel.position, altProjectile.transform.rotation);
+                Destroy(ap, 5f);
+                manaSource.GetComponent<TbMovementScript>().Use(altManaUsage);
+            }
+
         }
     }
-}
+}       

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4460370583570386}
   - component: {fileID: 33099164521722814}
   - component: {fileID: 23860264723268786}
-  - component: {fileID: 114977115574246648}
+  - component: {fileID: 114966727626351010}
   m_Layer: 0
   m_Name: MagiWandBig
   m_TagString: Untagged
@@ -174,7 +174,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332964656391480}
   m_Mesh: {fileID: 4300000, guid: 91b74c10b3e0aa74a94d3544d532be95, type: 3}
---- !u!114 &114977115574246648
+--- !u!114 &114966727626351010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -187,8 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   manaUsage: 0
+  altManaUsage: 0
   barrel: {fileID: 4779764929374086}
-  fireRate: 0.2
+  fireRate: 0.1
   projectile: {fileID: 1989582855426908, guid: 2e9e8118cdd0741479e457a87780f228, type: 2}
   aoe: 0
   aoeToggle: 0
@@ -198,6 +199,9 @@ MonoBehaviour:
   spread: {x: 0, y: 0, z: 0}
   pCamera: {fileID: 0}
   rayLength: 0
+  deathParticle: {fileID: 0}
+  manaSource: {fileID: 0}
+  currentMana: 0
   altProjectile: {fileID: 0}
   bottomBarrel: {fileID: 4198508989406892}
   floorcheck: 0

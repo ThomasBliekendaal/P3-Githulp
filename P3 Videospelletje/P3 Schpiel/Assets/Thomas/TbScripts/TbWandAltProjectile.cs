@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WandAltProjectile : TbWandWep {
+public class TbWandAltProjectile : TbWandWep {
     public Transform bottomBarrel;
     public bool floorcheck = false;
    
     // Use this for initialization
     void Start () {
-        pCamera = GameObject.FindGameObjectWithTag("Pcamera").transform;
+        pCamera = GameObject.FindGameObjectWithTag("Pcamera").transform;        
+        manaSource = GameObject.FindGameObjectWithTag("Player");
         
     }
 	
@@ -16,6 +17,7 @@ public class WandAltProjectile : TbWandWep {
 	void Update () {
 		transform.Rotate(0, Time.deltaTime * 120, 0, Space.World);
         barrel.LookAt(hit.point);
+        currentMana = manaSource.GetComponent<TbMovementScript>().mana;
         Fire();
 
         Debug.DrawRay(bottomBarrel.position, Vector3.down, Color.red, 1);

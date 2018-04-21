@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TbMovementScript : MonoBehaviour {
     public GameObject pCamera;
@@ -19,6 +20,17 @@ public class TbMovementScript : MonoBehaviour {
     public bool canRegenMana;
     public bool readyToRegen;
     public bool regening;
+    public Slider manaBar;
+    public Slider healthBar;
+    public float maxHealth = 100;
+    public float maxMana = 100;
+    public int upgradeBits;
+    public float rayLength;
+    public Transform pLook;
+    public RaycastHit hit;
+    public GameObject interactInfo;
+    public bool interactable;
+    public float regenSpeed = 30;
 
 
 	// Use this for initialization
@@ -26,6 +38,7 @@ public class TbMovementScript : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         totalJumps = jumps;
         walkSpeed2 = walkSpeed;
+        health = maxHealth;
     }
 	
 	// Update is called once per frame
@@ -63,11 +76,11 @@ public class TbMovementScript : MonoBehaviour {
     {
         if (canRegenMana == true)
         {
-            mana += Time.deltaTime * 30;
-            if (mana >= 100)
+            mana += Time.deltaTime * regenSpeed;
+            if (mana >= maxMana)
             {
                 canRegenMana = false;
-                mana = 100;
+                mana = maxMana;
             }
         }
         if (mana <= 0)
@@ -86,6 +99,31 @@ public class TbMovementScript : MonoBehaviour {
         {
             StopCoroutine(ManaTimer());
             regening = false;
+        }
+        manaBar.value = mana;
+        healthBar.value = health;
+        healthBar.maxValue = maxHealth;
+        manaBar.maxValue = maxMana;
+
+        if (Physics.Raycast(pLook.position, pLook.forward, out hit, rayLength))
+        {
+            if (hit.transform.tag == "Interactable")
+            {
+                interactInfo.SetActive(true);
+                interactable = true;
+            }
+        }
+        else
+        {
+            interactInfo.SetActive(false);
+            interactable = false;
+        }
+        if (interactable == true)
+        {
+            if (Input.GetButtonDown("Use"))
+            {
+                hit.transform.gameObject.GetComponent<TbInteractables>().Interaction();
+            }
         }
     }
     public void Use(float manaUsage)
@@ -113,5 +151,9 @@ public class TbMovementScript : MonoBehaviour {
                 regening = false;
             }
         }
+    }
+    public void PlayerTakeDamage(float enemyDamage)
+    {
+        health -= enemyDamage;
     }
 }
