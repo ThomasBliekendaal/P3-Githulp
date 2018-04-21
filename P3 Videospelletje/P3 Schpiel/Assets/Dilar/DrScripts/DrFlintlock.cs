@@ -55,13 +55,6 @@ public class DrFlintlock : MonoBehaviour
                 GameObject g = Instantiate(blood, hit.point, Quaternion.identity, hit.transform);
                 Destroy(g, 2);
             }
-            if (mark == null)
-            {
-                if (hit.transform.tag == ("Environment"))
-                {
-                    GameObject h = Instantiate(marker, hit.point, Quaternion.identity, hit.transform);
-                }
-            }
         }
     }
 

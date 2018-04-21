@@ -15,6 +15,7 @@ public class DrEnemyMaster : MonoBehaviour
     public GameObject cloud;
     public GameObject healthUI;
     public GameObject healthBar;
+    public GameObject enemyManager;
 
 
     public float moveSpeed;
@@ -49,6 +50,7 @@ public class DrEnemyMaster : MonoBehaviour
 
     private void Die()
     {
+        enemyManager.GetComponent<DrEnemySpawner>().enemyKilled = true;
         Destroy(gameObject);
         GameObject g = Instantiate(cloud, transform.position, transform.rotation);
         Destroy(g, 10);
