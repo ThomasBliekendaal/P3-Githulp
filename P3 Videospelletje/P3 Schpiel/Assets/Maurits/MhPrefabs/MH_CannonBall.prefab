@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c3156af1e7dae49a8a14b358a7103f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 0}
-  explosionParticle: {fileID: 0}
+  explosionParticle: {fileID: 1976480649936158, guid: 129a3d697099be143a5540ec27000c3c,
+    type: 2}
   target: {fileID: 0}
   movePos: {x: 0, y: 0, z: 1}
   moveSpeed: 7

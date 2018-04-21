@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MH_Portal : MonoBehaviour {
     public bool unlocked;
     public string loadSceneName;
-    public AudioSource openSound;
+    public GameObject particles;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,15 +20,16 @@ public class MH_Portal : MonoBehaviour {
     {
         if (hit.gameObject.tag == "Player" && unlocked)
         {
+            GameObject.FindGameObjectWithTag("StatSaver").GetComponent<StatManager>().AddPendant(5);
             SceneManager.LoadScene("loadSceneName");
         }
     }
     public void GotKey()
     {
         unlocked = true;
-        if(openSound != null)
+        if(particles != null)
         {
-            openSound.Play();
+            particles.GetComponent<ParticleSystem>().Play();
         }
     }
 }

@@ -27,6 +27,8 @@ public class MH_CastleBoss : MonoBehaviour {
             transform.LookAt(target.transform);
             if (canAttack)
             {
+                print("Attacked");
+                canAttack = false;
                 StartCoroutine(attacks[Random.Range(0, attacks.Count)]);
             }
         }
@@ -45,9 +47,10 @@ public class MH_CastleBoss : MonoBehaviour {
     }
     public void Death()
     {
-        posit = gameObject.transform.position;
-        posit.y += 3;
+        posit = target.transform.position;
+        posit.y -= 2.5f;
         Instantiate(bossKey, posit, Quaternion.identity);
+        bossDoor.GetComponent<MH_BossDoor>().unlocked = true;
         Destroy(gameObject);
     }
     public IEnumerator MoltenStuff()
@@ -71,7 +74,6 @@ public class MH_CastleBoss : MonoBehaviour {
     }
     public IEnumerator CannonBalls()
     {
-        canAttack = false;
         posit = gameObject.transform.position;
         posit.z += 3;
         for(int i = 0; i < Random.Range(3,6); i++)
@@ -84,12 +86,17 @@ public class MH_CastleBoss : MonoBehaviour {
     }
     public IEnumerator Cooldown()
     {
+        print("CD");
         if(Random.Range(1, 7) == 3)
         {
             gameObject.GetComponentInChildren<ParticleSystem>().Stop();
             yield return new WaitForSeconds(3);
             gameObject.GetComponentInChildren<ParticleSystem>().Play();
         }
+        CanAttack();
+    }
+    public void CanAttack()
+    {
         canAttack = true;
     }
 }
