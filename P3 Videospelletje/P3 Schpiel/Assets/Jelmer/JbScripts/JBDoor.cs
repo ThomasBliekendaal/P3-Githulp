@@ -9,6 +9,7 @@ public class JBDoor : JBInteractable {
     public float current;
     public bool locked;
     public JBThoughts thought;
+    public JBThoughtInput lockedThought;
 
 
     public void Start()
@@ -44,7 +45,7 @@ public class JBDoor : JBInteractable {
         }
         else
         {
-            thought.StartIt("Its Locked");
+            thought.SetNewThought(lockedThought);
         }
     }
 
