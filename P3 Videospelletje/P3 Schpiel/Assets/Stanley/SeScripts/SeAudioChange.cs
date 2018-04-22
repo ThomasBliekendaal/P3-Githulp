@@ -22,5 +22,8 @@ public class SeAudioChange : MonoBehaviour
         gameObject.GetComponent<AudioSource>().enabled = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         GameObject.FindWithTag("AudioChange").GetComponent<BoxCollider>().enabled = true;
+        GameObject.FindWithTag("Enemy").transform.GetComponentInChildren<SeEnemy>().enabled = true;
+        GameObject.FindWithTag("Enemy").GetComponent<SeUpAndDown>().enabled = true;
+        GameObject.FindWithTag("Enemy").transform.GetComponentInChildren<SeEnemy>().Mhhhhhmmmmm();
     }
 }
