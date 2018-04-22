@@ -7,6 +7,7 @@ public class DrEnemySpawner : MonoBehaviour
 
     public GameObject[] enemySpawners;
     public GameObject enemy;
+    public GameObject panel;
 
     public bool enemyKilled = false;
     public int kills;
@@ -25,15 +26,22 @@ public class DrEnemySpawner : MonoBehaviour
         {
             kills++;
             enemyKilled = false;
-            SpawnEnemies();
+            if (kills < 10)
+            {
+                SpawnEnemies();
+            }
+            else
+            {
+                panel.SetActive(true);
+            }
         }
 	}
 
 
     public void SpawnEnemies()
     {
-        Debug.Log(" REE");
         spawnPoint = Random.Range(0, 2);
+        Instantiate(enemy, enemySpawners[spawnPoint].transform.position, Quaternion.identity);
         Instantiate(enemy, enemySpawners[spawnPoint].transform.position, Quaternion.identity);
     }
 }

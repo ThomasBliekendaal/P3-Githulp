@@ -25,6 +25,10 @@ public class JBPickUp : JBInteractable
             activeItem.transform.parent = null;
             activeItem.GetComponent<Collider>().isTrigger = false;
             activeItem.GetComponent<JBThrowItem>().enabled = false;
+            if (activeItem.GetComponent<JBWeaponSwing>())
+            {
+                activeItem.GetComponent<JBWeaponSwing>().enabled = false;
+            }
 
             player.currentItem[0] = gameObject;
             gameObject.GetComponent<JBPickUp>().enabled = false;
@@ -34,6 +38,11 @@ public class JBPickUp : JBInteractable
             gameObject.transform.position = hand.position;
             gameObject.transform.rotation = hand.rotation;
             gameObject.GetComponent<JBThrowItem>().enabled = true;
+            if (gameObject.GetComponent<JBWeaponSwing>())
+            {
+                gameObject.GetComponent<JBWeaponSwing>().enabled = true;
+                gameObject.GetComponent<JBWeaponSwing>().SetRotation();
+            }
             player.currentItem[0] = gameObject;
         }
         else
@@ -43,6 +52,11 @@ public class JBPickUp : JBInteractable
             gameObject.transform.parent = hand;
             gameObject.GetComponent<Collider>().isTrigger = true;
             gameObject.transform.position = hand.position;
+            if (gameObject.GetComponent<JBWeaponSwing>())
+            {
+                gameObject.GetComponent<JBWeaponSwing>().enabled = true;
+                gameObject.GetComponent<JBWeaponSwing>().SetRotation();
+            }
             transform.localRotation = Quaternion.Euler(new Vector3(pickupRotation.x,pickupRotation.y,pickupRotation.z));
             gameObject.GetComponent<JBThrowItem>().enabled = true;
             player.currentItem = new GameObject[1] {gameObject};
