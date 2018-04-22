@@ -31,6 +31,7 @@ public class TbMovementScript : MonoBehaviour {
     public GameObject interactInfo;
     public bool interactable;
     public float regenSpeed = 30;
+    public Text currentUpPoints;
 
 
 	// Use this for initialization
@@ -104,6 +105,7 @@ public class TbMovementScript : MonoBehaviour {
         healthBar.value = health;
         healthBar.maxValue = maxHealth;
         manaBar.maxValue = maxMana;
+        currentUpPoints.text = upgradeBits.ToString();
 
         if (Physics.Raycast(pLook.position, pLook.forward, out hit, rayLength))
         {

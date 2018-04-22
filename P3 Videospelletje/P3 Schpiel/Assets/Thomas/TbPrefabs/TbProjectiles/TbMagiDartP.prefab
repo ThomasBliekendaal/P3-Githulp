@@ -56,8 +56,8 @@ GameObject:
   - component: {fileID: 33853352457835772}
   - component: {fileID: 23618132391192942}
   - component: {fileID: 65663888944460078}
-  - component: {fileID: 54860224908276414}
   - component: {fileID: 114185072191686010}
+  - component: {fileID: 54083966348101934}
   m_Layer: 9
   m_Name: TbMagiDartP
   m_TagString: PlayerBullet
@@ -147,7 +147,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989582855426908}
   m_Mesh: {fileID: 4300000, guid: 91808551baf86ff4cb69ff58cbc8f5e9, type: 3}
---- !u!54 &54860224908276414
+--- !u!54 &54083966348101934
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   manaUsage: 0
+  altManaUsage: 0
   barrel: {fileID: 0}
   fireRate: 0
   projectile: {fileID: 0}
@@ -200,6 +201,9 @@ MonoBehaviour:
   rayLength: 0
   deathParticle: {fileID: 1195119030069320, guid: 9007c8017ffc095419a90120573ff521,
     type: 2}
+  manaSource: {fileID: 0}
+  currentMana: 0
+  weapon: {fileID: 0}
 --- !u!198 &198553665444120670
 ParticleSystem:
   m_ObjectHideFlags: 1

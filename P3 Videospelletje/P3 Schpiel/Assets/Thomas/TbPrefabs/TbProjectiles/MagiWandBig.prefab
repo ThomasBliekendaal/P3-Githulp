@@ -189,7 +189,7 @@ MonoBehaviour:
   manaUsage: 0
   altManaUsage: 0
   barrel: {fileID: 4779764929374086}
-  fireRate: 0.1
+  fireRate: 0.2
   projectile: {fileID: 1989582855426908, guid: 2e9e8118cdd0741479e457a87780f228, type: 2}
   aoe: 0
   aoeToggle: 0

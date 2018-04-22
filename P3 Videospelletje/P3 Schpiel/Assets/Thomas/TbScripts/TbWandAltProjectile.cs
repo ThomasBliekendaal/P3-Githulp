@@ -15,7 +15,7 @@ public class TbWandAltProjectile : TbWandWep {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(0, Time.deltaTime, 0, Space.World);
+		transform.Rotate(0, Time.deltaTime * 120, 0, Space.World);
         barrel.LookAt(hit.point);
         currentMana = manaSource.GetComponent<TbMovementScript>().mana;
         Fire();
