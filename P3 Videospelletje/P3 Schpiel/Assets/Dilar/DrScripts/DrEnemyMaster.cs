@@ -9,7 +9,9 @@ public class DrEnemyMaster : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    public GameObject playerObject;
     public Transform player;
+
     private Transform navTarget;
     private Vector3 v = new Vector3(0, 0, 1);
     public GameObject cloud;
@@ -24,6 +26,10 @@ public class DrEnemyMaster : MonoBehaviour
 
     void Start()
     {
+        enemyManager = GameObject.FindWithTag("Finish");
+
+        playerObject = GameObject.FindWithTag("Player");
+
         agent = gameObject.GetComponent<NavMeshAgent>();
         navTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
