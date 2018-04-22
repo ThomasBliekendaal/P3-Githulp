@@ -6,11 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/General Purpose/Scenes/HubWorld.unity
+    guid: 4900fafd25bb47f41930fbbd64d73fd0
+  - enabled: 1
     path: Assets/General Purpose/Scenes/Don'tDestroyOnLoad.unity
     guid: ceed952eaee8cde47b3445eaabc664d3
+  - enabled: 1
+    path: Assets/Jelmer/JbScenes/MainScene.unity
+    guid: 175659b8f95c06842abe8c785b8b1dac
   - enabled: 1
     path: Assets/Maurits/MhScenes/MH_Game.unity
     guid: 9f992707987b10a4a8a8cdbcb2b5f189
   - enabled: 1
-    path: Assets/General Purpose/Scenes/MainMenu.unity
-    guid: e34c31ad4610beb48bd367e76f308679
+    path: Assets/Thomas/TbScenes/TbMedieval1.unity
+    guid: e10ebd36d4d45e7439744b4f6c900203
+  - enabled: 1
+    path: Assets/Mathijs/MrScenes/MrScene.unity
+    guid: 84d25848628eb7d45be870c3887f0f6b
+  - enabled: 1
+    path: Assets/Dilar/DrScenes/DrScene.unity
+    guid: 317248c5d2bae28408df167e85a42a29
+  - enabled: 1
+    path: Assets/Stanley/SeScenes/SeGame.unity
+    guid: 5a6f95765e5afa645b67300d502e2b6e
