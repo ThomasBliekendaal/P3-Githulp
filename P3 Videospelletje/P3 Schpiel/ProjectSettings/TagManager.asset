@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - Gate
   - StatSaver
+  - Floor
+  - Light
+  - AudioChange
+  - AudioChange2
   layers:
   - Default
   - TransparentFX
