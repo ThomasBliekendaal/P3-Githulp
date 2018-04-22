@@ -26,6 +26,6 @@ public class MainMenu : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("StatSaver").GetComponent<StatManager>().gotPendantos.gotPendant[i] = false;
         }
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("HubWorld");
     }
 }

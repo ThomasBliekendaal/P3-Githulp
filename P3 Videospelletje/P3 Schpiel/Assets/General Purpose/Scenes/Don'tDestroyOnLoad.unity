@@ -313,4 +313,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39543563b6b08a4eb346e221c55ddd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MainMenu
+  sceneName: HubWorld
+  firstLevel: 1
