@@ -10,6 +10,7 @@ public class TbEnemyScript : MonoBehaviour {
     public Transform barrel;
     public GameObject spell;
     public float spellVel;
+    public GameObject portalBoy;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class TbEnemyScript : MonoBehaviour {
 	void Update () {
         if(enemyHealth <= 0)
         {
-
+            portalBoy.SetActive(true);
             Destroy(gameObject);
         }
         //GameObject s = Instantiate(spell, barrel.position, barrel.rotation);

@@ -13,6 +13,10 @@ TagManager:
   - Light
   - AudioChange
   - AudioChange2
+  - Pcamera
+  - PlayerBullet
+  - Weapon
+  - TbPortal
   layers:
   - Default
   - TransparentFX
