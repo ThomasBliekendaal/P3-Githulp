@@ -9,6 +9,7 @@ public class SeEnemy : MonoBehaviour
     public Transform player;
     public bool fire;
     public List<Rigidbody> idk;
+    public int hp;
 
 	void Start ()
     {
@@ -44,6 +45,15 @@ public class SeEnemy : MonoBehaviour
                 Rigidbody rb = NearbyObject.GetComponent<Rigidbody>();
                 rb.AddExplosionForce(1000, transform.position, 1000);
             }
+        }
+    }
+
+    public void LoseHP(int dmg)
+    {
+        hp -= dmg;
+        if (hp == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

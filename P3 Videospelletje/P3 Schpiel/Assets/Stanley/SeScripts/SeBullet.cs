@@ -20,6 +20,10 @@ public class SeBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
+        if (c.gameObject.tag == "Player")
+        {
+            c.gameObject.GetComponent<SePlayer>().LoseHP(1);
+        }
         Destroy(gameObject);
     }
 

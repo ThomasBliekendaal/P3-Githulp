@@ -19,8 +19,11 @@ public class SeAudioChange2 : MonoBehaviour
 
     void OnCollisionEnter(Collision c)
     {
-        gameObject.GetComponent<AudioSource>().enabled = false;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-        GameObject.FindWithTag("AudioChange2").GetComponent<BoxCollider>().enabled = true;
+        if (c.gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<AudioSource>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+            GameObject.FindWithTag("AudioChange2").GetComponent<BoxCollider>().enabled = true;
+        }
     }
 }
