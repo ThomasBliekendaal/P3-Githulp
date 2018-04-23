@@ -32,8 +32,8 @@ public class TbBigDoor : TbInteractables {
         }
         else
         {
-            doorLeft.transform.Rotate(0, 0, 0, Space.World);
-            doorRight.transform.Rotate(0, 180, 0, Space.World);
+            //doorLeft.transform.Rotate(0, 0, 0, Space.World);
+            //doorRight.transform.Rotate(0, 180, 0, Space.World);
         }
 	}
 }
