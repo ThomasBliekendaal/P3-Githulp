@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class MH_UIManager : MonoBehaviour {
@@ -123,5 +124,9 @@ public class MH_UIManager : MonoBehaviour {
             ToPause(pauseScreen);
             Time.timeScale = 0;
         }
+    }
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
