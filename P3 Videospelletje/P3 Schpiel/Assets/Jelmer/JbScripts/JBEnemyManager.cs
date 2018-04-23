@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class JBEnemyManager : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class JBEnemyManager : MonoBehaviour {
     public int neededKillAmount;
     public int kills;
     public Text amountInput;
+    public GameObject endpanel;
 
     public void Start()
     {
@@ -27,7 +29,16 @@ public class JBEnemyManager : MonoBehaviour {
         amountInput.text = kills.ToString() + " / " + neededKillAmount.ToString();
         if (kills >= neededKillAmount)
         {
-            Debug.Log("you did it, youre a good boi");
+            Time.timeScale = 0;
+            endpanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
+    }
+
+    public void Buttonpress()
+    {
+        GameObject.FindGameObjectWithTag("StatSaver").GetComponent<StatManager>().AddPendant(0);
+        SceneManager.LoadScene("HubWorld");
     }
 }

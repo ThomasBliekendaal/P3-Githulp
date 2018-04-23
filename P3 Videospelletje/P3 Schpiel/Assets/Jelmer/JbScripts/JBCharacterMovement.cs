@@ -60,7 +60,7 @@ public class JBCharacterMovement : MonoBehaviour {
         cam.Rotate(-Input.GetAxis("Mouse Y"), 0, 0);
         head.Rotate(0, Input.GetAxis("Mouse X"), 0);
 
-        if (Physics.Raycast(cam.position, cam.transform.forward* 5, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
+        if (Physics.Raycast(cam.position, cam.transform.forward, out interact) && interact.transform.tag == "Interactable" && Input.GetButtonDown("Interact"))
         {
             interact.transform.gameObject.GetComponent<JBInteractable>().Interacted();
         }
